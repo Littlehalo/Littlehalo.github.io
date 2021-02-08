@@ -1,0 +1,284 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on LiuHuang&#39;s Blog</title>
+		<link>https://Littlehalo.github.io/posts/</link>
+		<description>Recent content in Posts on LiuHuang&#39;s Blog</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>zh-CN</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://Littlehalo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>vue中axios的封装</title>
+			<link>https://Littlehalo.github.io/posts/vue%E4%B8%ADaxios%E5%B0%81%E8%A3%85/</link>
+			<pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/vue%E4%B8%ADaxios%E5%B0%81%E8%A3%85/</guid>
+			<description>关于axios在vue中的封装以及遇到的一些问题 建立文件夹utils和api http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&amp;gt; {// loadingreturn config}, error =&amp;gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&amp;gt; {return response}, error =&amp;gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;amp;&amp;amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res.</description>
+			<content type="html"><![CDATA[<h1 id="关于axios在vue中的封装以及遇到的一些问题">关于axios在vue中的封装以及遇到的一些问题</h1>
+<p><img src="C:%5CUsers%5CLIUHUANG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210208001951476.png" alt="image-20210208001951476"></p>
+<h4 id="建立文件夹utils和api">建立文件夹utils和api</h4>
+<h4 id="httpjs配置">http.js配置</h4>
+<pre><code>'use strict'
+
+import axios from 'axios'
+import qs from 'qs'
+
+axios.interceptors.request.use(config =&gt; {
+  // loading
+  return config
+}, error =&gt; {
+  return Promise.reject(error)
+})
+
+axios.interceptors.response.use(response =&gt; {
+  return response
+}, error =&gt; {
+  return Promise.resolve(error.response)
+})
+
+function checkStatus (response) {
+  // loading
+  // 如果http状态码正常，则直接返回数据
+  if (response &amp;&amp; (response.status === 200 || response.status === 304 || response.status === 400)) {
+    return response
+    // 如果不需要除了data之外的数据，可以直接 return response.data
+  }
+  // 异常状态下，把错误信息返回去
+  return {
+    status: -404,
+    msg: '网络异常'
+  }
+}
+
+function checkCode (res) {
+  // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
+  if (res.status === -404) {
+    console.log(res.msg)
+  }
+  if (res.data &amp;&amp; (!res.data.success)) {
+    console.log(&quot;这是一个拦截器&quot;)
+  }
+  return res
+}
+
+export default {
+  post (url, data) {
+    return axios({
+      method: 'post',
+      baseURL: 'https://v0.yiketianqi.com/',
+      url,
+      data: qs.stringify(data),
+      timeout: 10000,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then(
+      (response) =&gt; {
+        return checkStatus(response)
+      }
+    ).then(
+      (res) =&gt; {
+        return checkCode(res)
+      }
+    )
+  },
+  get (url, params) {
+    return axios({
+      method: 'get',
+      baseURL: '/tq',
+      url,
+      params, // get 请求时带的参数
+      timeout: 10000,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    }).then(
+      (response) =&gt; {
+        return checkStatus(response)
+      }
+    ).then(
+      (res) =&gt; {
+        return checkCode(res)
+      }
+    )
+  }
+}
+
+</code></pre><h4 id="apijs中存放一些接口api">api.js中存放一些接口api</h4>
+<pre><code>export default {
+    right: '/api?version=v61&amp;appid=42775833&amp;appsecret=DP2I4kS2', // 正确路径
+  }
+  
+</code></pre><h4 id="在vue中引用">在vue中引用</h4>
+<pre><code>import http from './utils/http'
+import api from './api/api'
+
+created() {
+    // axios.defaults.baseURL=&quot;https://v0.yiketianqi.com/&quot;
+    // axios.get('api?version=v61&amp;appid=42775833&amp;appsecret=DP2I4kS2').then((res)=&gt;{
+    //   this.title = res.data.air_tips
+    //   console.log(res)
+    // })
+    this.fetchData()
+  },
+  methods: {
+    fetchData:async function () {
+      let params = {
+      }
+      const res = await http.get(api.right)
+      // if (res.data.success) {
+      //   alert('请求成功')
+      // }
+      console.log(res);
+    },
+  }
+</code></pre><h3 id="产生的问题">产生的问题</h3>
+<p>跨域问题</p>
+<p>配置vue.config.js</p>
+<pre><code>const path =  require('path');
+const resolve = (dir) =&gt; path.join(__dirname, dir);
+
+const CompressionWebpackPlugin = require(&quot;compression-webpack-plugin&quot;); // 开启gzip压缩(可选)
+const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i; // 开启gzip压缩(可选)
+
+const BundleAnalyzerPlugin = require(&quot;webpack-bundle-analyzer&quot;).BundleAnalyzerPlugin; // 打包分析，(可选)
+
+const IS_PRODUCTION = ['production', 'prod'].includes(process.env.NODE_ENV);//判断是否是生产环境
+/** 正式配置项，以下参数 都是可选**/
+module.exports = {
+    publicPath: process.env.NODE_ENV === 'production' ? '/site/vue-demo/' : '/',  // 打包公共路径
+    indexPath: 'index.html' , // 相对于打包路径index.html的路径
+    outputDir: process.env.outputDir || 'dist', // 'dist', 生产环境构建文件的目录
+    assetsDir: 'static', // 相对于outputDir的静态资源(js、css、img、fonts)目录
+    lintOnSave: false, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码，false不需要
+    runtimeCompiler: true, // 是否使用包含运行时编译器的 Vue 构建版本
+    productionSourceMap: !IS_PRODUCTION, // 生产环境的 source map,
+    parallel: require(&quot;os&quot;).cpus().length &gt; 1, // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
+    pwa: {}, // 向 PWA 插件传递选项。
+    chainWebpack: config =&gt; {
+        config.resolve.symlinks(true); // 修复热更新失效
+        // 如果使用多页面打包，使用vue inspect --plugins查看html是否在结果数组中
+        config.plugin(&quot;html&quot;).tap(args =&gt; {
+            // 修复 Lazy loading routes Error
+            args[0].chunksSortMode = &quot;none&quot;;
+            return args;
+        });
+        config.resolve.alias // 添加别名
+            .set('@', resolve('src'))
+            .set('@assets', resolve('src/assets'))
+            .set('@components', resolve('src/components'))
+            .set('@views', resolve('src/views'))
+            .set('@store', resolve('src/store'));
+        // 压缩图片
+        // 需要 npm i -D image-webpack-loader
+        config.module
+            .rule(&quot;images&quot;)
+            .use(&quot;image-webpack-loader&quot;)
+            .loader(&quot;image-webpack-loader&quot;)
+            .options({
+                mozjpeg: { progressive: true, quality: 65 },
+                optipng: { enabled: false },
+                pngquant: { quality: [0.65, 0.9], speed: 4 },
+                gifsicle: { interlaced: false },
+                webp: { quality: 75 }
+            });
+        // 打包分析, 打包之后自动生成一个名叫report.html文件(可忽视)
+        if (IS_PRODUCTION) {
+            config.plugin(&quot;webpack-report&quot;).use(BundleAnalyzerPlugin, [
+                {
+                    analyzerMode: &quot;static&quot;
+                }
+            ]);
+        }
+    },
+    //webpack的配置项
+    configureWebpack: config =&gt; {
+        // 开启 gzip 压缩
+        // 需要 npm i -D compression-webpack-plugin
+        const plugins = [];
+        if (IS_PRODUCTION) {
+            plugins.push(
+                new CompressionWebpackPlugin({
+                    filename: &quot;[path].gz[query]&quot;,
+                    algorithm: &quot;gzip&quot;,
+                    test: productionGzipExtensions,
+                    threshold: 10240,
+                    minRatio: 0.8
+                })
+            );
+        }
+        config.plugins = [...config.plugins, ...plugins];
+    },
+    css: {
+        extract: IS_PRODUCTION,
+        requireModuleExtension: false,// 去掉文件名中的 .module
+        loaderOptions: {
+                // 给 less-loader 传递 Less.js 相关选项
+                less: {
+                    // `globalVars` 定义全局对象，可加入全局变量
+                    globalVars: {
+                        primary: '#333'
+                    }
+                }
+        }
+    },
+    devServer: {
+            overlay: { // 让浏览器 overlay 同时显示警告和错误
+              warnings: true,
+              errors: true
+            },
+            host: &quot;localhost&quot;,
+            port: 8081, // 端口号
+            https: false, // https:{type:Boolean}
+            open: false, //配置后自动启动浏览器
+            hotOnly: true, // 热更新
+            // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
+            proxy: { //配置多个跨域
+                &quot;/tq&quot;: {
+                    target: &quot;https://v0.yiketianqi.com/&quot;,
+                    changeOrigin: true,
+                    ws: true,//websocket支持
+                    secure: false,
+                    // pathRewrite: {
+                    //     &quot;^/tq&quot;: &quot;https://v0.yiketianqi.com/&quot;
+                    // }
+                }
+            }
+        }
+}
+</code></pre><h3 id="heading"></h3>
+<h4 id="问题1一开始配置了devserve但是请求的还是本地接口">问题1：一开始配置了devServe，但是请求的还是本地接口</h4>
+<h5 id="后来修改port端口为8081恢复正常不知道什么原因">后来修改port端口为8081，恢复正常，不知道什么原因</h5>
+<h4 id="针对学习axios官网axios拦截器vue-cli官网一些配置">针对学习：axios官网（axios拦截器）；vue-cli官网（一些配置）</h4>
+]]></content>
+		</item>
+		
+		<item>
+			<title>再一次搭建博客</title>
+			<link>https://Littlehalo.github.io/posts/%E5%86%8D%E6%AC%A1%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+			<pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/%E5%86%8D%E6%AC%A1%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+			<description>再次搭建博客 再一次搭建博客，这次使用的是gitte，只是简单的以为国内代码托管平台可能会更快点，没想到却遇见了很多棘手的问题，hexo download下来但是不能hexo d到gitte仓库上去，后面更加是牵扯到了ssh公钥的问题上去，后面导致连本地代码都不能push上去，后来想到一个蠢方法，就是简单的把hexo代码push上去就可以了，在一键部署上去，能简单使用了就可以了，后面的自己研究，就当是一个自己的笔记把
+本地代码 推送到gitte步骤：
+git init git add . git commit -m &amp;quot; &amp;quot; git remote add origin url git push -u origin master
+删除自己的有关联的分支
+find . -name &amp;ldquo;.git&amp;rdquo; | xargs rm -Rf</description>
+			<content type="html"><![CDATA[<h1 id="再次搭建博客">再次搭建博客</h1>
+<p>再一次搭建博客，这次使用的是gitte，只是简单的以为国内代码托管平台可能会更快点，没想到却遇见了很多棘手的问题，hexo download下来但是不能hexo d到gitte仓库上去，后面更加是牵扯到了ssh公钥的问题上去，后面导致连本地代码都不能push上去，后来想到一个蠢方法，就是简单的把hexo代码push上去就可以了，在一键部署上去，能简单使用了就可以了，后面的自己研究，就当是一个自己的笔记把</p>
+<p>本地代码 推送到gitte步骤：</p>
+<p>git init 
+git add .
+git commit -m &quot; &quot;
+git remote  add origin url
+git push -u origin master</p>
+<p>删除自己的有关联的分支</p>
+<p>find . -name &ldquo;.git&rdquo; | xargs rm -Rf</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>

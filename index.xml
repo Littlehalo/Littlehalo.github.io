@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LiuHuang&#39;s Blog</title>
+    <link>https://Littlehalo.github.io/</link>
+    <description>Recent content on LiuHuang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Littlehalo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vue中axios的封装</title>
+      <link>https://Littlehalo.github.io/posts/vue%E4%B8%ADaxios%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/posts/vue%E4%B8%ADaxios%E5%B0%81%E8%A3%85/</guid>
+      <description>关于axios在vue中的封装以及遇到的一些问题 建立文件夹utils和api http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&amp;gt; {// loadingreturn config}, error =&amp;gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&amp;gt; {return response}, error =&amp;gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;amp;&amp;amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res.</description>
+    </item>
+    
+    <item>
+      <title>再一次搭建博客</title>
+      <link>https://Littlehalo.github.io/posts/%E5%86%8D%E6%AC%A1%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/posts/%E5%86%8D%E6%AC%A1%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>再次搭建博客 再一次搭建博客，这次使用的是gitte，只是简单的以为国内代码托管平台可能会更快点，没想到却遇见了很多棘手的问题，hexo download下来但是不能hexo d到gitte仓库上去，后面更加是牵扯到了ssh公钥的问题上去，后面导致连本地代码都不能push上去，后来想到一个蠢方法，就是简单的把hexo代码push上去就可以了，在一键部署上去，能简单使用了就可以了，后面的自己研究，就当是一个自己的笔记把
+本地代码 推送到gitte步骤：
+git init git add . git commit -m &amp;quot; &amp;quot; git remote add origin url git push -u origin master
+删除自己的有关联的分支
+find . -name &amp;ldquo;.git&amp;rdquo; | xargs rm -Rf</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://Littlehalo.github.io/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/about/</guid>
+      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
+It makes use of a variety of open source projects including:
+ https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>About Hugo</title>
+      <link>https://Littlehalo.github.io/about-hugo/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/about-hugo/</guid>
+      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
+It makes use of a variety of open source projects including:
+ https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+    </item>
+    
+  </channel>
+</rss>

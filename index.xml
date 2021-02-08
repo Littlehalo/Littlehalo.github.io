@@ -18,7 +18,7 @@
       <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Littlehalo.github.io/posts/vue%E4%B8%ADaxios%E5%B0%81%E8%A3%85/</guid>
-      <description>关于axios在vue中的封装以及遇到的一些问题 建立文件夹utils和api http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&amp;gt; {// loadingreturn config}, error =&amp;gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&amp;gt; {return response}, error =&amp;gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;amp;&amp;amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res.</description>
+      <description>关于axios在vue中的封装以及遇到的一些问题 在src目录下建立文件夹utils/http.js和api/api.js http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&amp;gt; {// loadingreturn config}, error =&amp;gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&amp;gt; {return response}, error =&amp;gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;amp;&amp;amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res.</description>
     </item>
     
     <item>
@@ -27,11 +27,11 @@
       <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Littlehalo.github.io/posts/%E5%86%8D%E6%AC%A1%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>再次搭建博客 再一次搭建博客，这次使用的是gitte，只是简单的以为国内代码托管平台可能会更快点，没想到却遇见了很多棘手的问题，hexo download下来但是不能hexo d到gitte仓库上去，后面更加是牵扯到了ssh公钥的问题上去，后面导致连本地代码都不能push上去，后来想到一个蠢方法，就是简单的把hexo代码push上去就可以了，在一键部署上去，能简单使用了就可以了，后面的自己研究，就当是一个自己的笔记把
+      <description>再一次搭建博客，这次使用的是gitte，只是简单的以为国内代码托管平台可能会更快点，没想到却遇见了很多棘手的问题，hexo download下来但是不能hexo d到gitte仓库上去，后面更加是牵扯到了ssh公钥的问题上去，后面导致连本地代码都不能push上去，后来想到一个蠢方法，就是简单的把hexo代码push上去就可以了，在一键部署上去，能简单使用了就可以了，后面的自己研究，就当是一个自己的笔记把
 本地代码 推送到gitte步骤：
-git init git add . git commit -m &amp;quot; &amp;quot; git remote add origin url git push -u origin master
-删除自己的有关联的分支
-find . -name &amp;ldquo;.git&amp;rdquo; | xargs rm -Rf</description>
+ git init git add . git commit -m &amp;quot; &amp;quot; git remote add origin url git push -u origin master  删除自己的有关联的分支
+find . -name &amp;ldquo;.git&amp;rdquo; | xargs rm -Rf
+ 调试了一天，配置了太多太多都没有用，后面改用hugo搭建了博客  在config.toml中改参数 生成public: 打开文件根目录的cmd或git bash here输入hugo 进入public 在该页面下打开git bash here 相继输入以下代码  git init git add -Agit commit -am&amp;quot;init&amp;quot;git remote add origin https://github.com/你的用户名/你的用户名.github.io.git（假如是我：git remote add origin https://github.com/spiritLHL/spiritLHL.github.io.git）git push -f origin master（无响应则再次运行同一代码，最多两次）ok!</description>
     </item>
     
     <item>

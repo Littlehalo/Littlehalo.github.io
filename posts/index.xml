@@ -6,8 +6,142 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zh-CN</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Tue, 09 Feb 2021 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://Littlehalo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>constructor</title>
+			<link>https://Littlehalo.github.io/posts/js%E4%B8%AD%E7%9A%84constructor/</link>
+			<pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/js%E4%B8%AD%E7%9A%84constructor/</guid>
+			<description> __proto__和constructor属性是对象所独有的； prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和constructor属性。 __proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，然后返回undefined，再往上找就相当于在null上取值，会报错。通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。 prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1.proto === Foo.prototype。 constructor属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向Function。 另外 proto 属性是浏览器对es5的实现，而不是es标准。  </description>
+			<content type="html"><![CDATA[<ol>
+<li>__proto__和<strong>constructor</strong>属性是对象所独有的；</li>
+<li><strong>prototype</strong>属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和<strong>constructor</strong>属性。 __proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，然后返回<strong>undefined</strong>，再往上找就相当于在<strong>null</strong>上取值，会报错。通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。</li>
+<li><strong>prototype</strong>属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1.<strong>proto</strong> === <strong>Foo</strong>.<strong>prototype</strong>。</li>
+<li><strong>constructor</strong>属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向<strong>Function</strong>。 另外 <strong>proto</strong> 属性是浏览器对es5的实现，而不是es标准。</li>
+</ol>
+<p><img src="https://pic.xiaohuochai.site/blog/JS_ECMA_grammer_proto.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/02/09/BQ6zpe1Z3NGHa48.png" alt="1.png"></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Object.prototype.toString.call()</title>
+			<link>https://Littlehalo.github.io/posts/object.prototype.tostring.call/</link>
+			<pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/object.prototype.tostring.call/</guid>
+			<description>使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)
+//1.判断基本类型：Object.prototype.toString.call(null);//”[object Null]”Object.prototype.toString.call(undefined);//”[object Undefined]”Object.prototype.toString.call(“abc”);//”[object String]”Object.prototype.toString.call(123);//”[object Number]”Object.prototype.toString.call(true);//”[object Boolean]”//2.判断原生引用类型：//函数类型Function fn(){console.log(“test”);}Object.prototype.toString.call(fn);//”[object Function]”//日期类型var date = new Date();Object.prototype.toString.call(date);//”[object Date]”// 数组类型var arr = [1,2,3];Object.prototype.toString.call(arr);//”[object Array]”//正则表达式var reg = /[hbc]at/gi;Object.prototype.toString.call(arr);//”[object Array]”//自定义类型function Person(name, age) {this.name = name;this.age = age;}var person = new Person(&amp;quot;Rose&amp;quot;, 18);Object.prototype.toString.call(arr); //”[object Object]”//很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：console.log(person instanceof Person);//输出结果为true//3.判断原生JSON对象： var isNativeJSON = window.</description>
+			<content type="html"><![CDATA[<p>使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)</p>
+<pre><code>//1.判断基本类型：
+ Object.prototype.toString.call(null);//”[object Null]”
+ Object.prototype.toString.call(undefined);//”[object Undefined]”
+ Object.prototype.toString.call(“abc”);//”[object String]”
+ Object.prototype.toString.call(123);//”[object Number]”
+ Object.prototype.toString.call(true);//”[object Boolean]”
+ 
+//2.判断原生引用类型：
+ //函数类型
+  Function fn(){console.log(“test”);}
+  Object.prototype.toString.call(fn);//”[object Function]”
+ //日期类型
+  var date = new Date();
+  Object.prototype.toString.call(date);//”[object Date]”
+// 数组类型
+  var arr = [1,2,3];
+  Object.prototype.toString.call(arr);//”[object Array]”
+ //正则表达式
+  var reg = /[hbc]at/gi;
+  Object.prototype.toString.call(arr);//”[object Array]”
+ //自定义类型
+  function Person(name, age) {
+      this.name = name;
+      this.age = age;
+  }
+  var person = new Person(&quot;Rose&quot;, 18);
+  Object.prototype.toString.call(arr); //”[object Object]”
+ //很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：
+ console.log(person instanceof Person);//输出结果为true
+ 
+//3.判断原生JSON对象：                                                                                            
+var isNativeJSON = window.JSON &amp;&amp; Object.prototype.toString.call(JSON);
+console.log(isNativeJSON);//输出结果为”[object JSON]”说明JSON是原生的，否则不是；
+//注意：Object.prototype.toString()本身是允许被修改的，而我们目前所讨论的关于Object.prototype.toString()这个方法的应用都是假设toString()方法未被修改为前提的。
+</code></pre>]]></content>
+		</item>
+		
+		<item>
+			<title>函数作用域预编译</title>
+			<link>https://Littlehalo.github.io/posts/js%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
+			<pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/js%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
+			<description>函数作用域预编译  创建ao对象 找形参和变量声明 将形参和变量名 当做AO对象的属性名，值为undefined 实参形参统一 在函数体里面找函数声明，赋值  全局作用域的预编译  创建GO对象 找变量声明 将变量名作为GO对象的属性名 值为undefined 找函数声明，赋值  作用域链 保存在[scope]中，用户访问不到但是存在，js引擎可以访问到
+闭包的理解（内部函数在外部可以调用） 闭包的引用：js的防抖和节流
+防抖function debounce(fun,delay){let timerreturn function(args){clearTimeout(timer)timer = setTimeout(function(){fun(args)},delay)}}节流function throottle(fun,wait){let timeoutreturn function(){if(!timeout){timeout = setTimeout(function(){timeout=nullfun},wait)}}}深拷贝浅拷贝 　JS分两种数据类型：
+　基本数据类型（存放在栈中）**：**Number、String、Boolean、Null、 Undefined、Symbol（ES6），**这些类型可以直接操作保存在变量中的实际值。
+　引用数据类型（存放在堆内存中的对象）：Object（在JS中除了基本数据类型以外的都是对象，数据是对象，函数是对象，正则表达式是对象）
+​	赋值：
+​	浅拷贝：
+​	深拷贝：
+绑定this指向  call apply bind  </description>
+			<content type="html"><![CDATA[<h5 id="函数作用域预编译">函数作用域预编译</h5>
+<ol>
+<li>创建ao对象</li>
+<li>找形参和变量声明 将形参和变量名 当做AO对象的属性名，值为undefined</li>
+<li>实参形参统一</li>
+<li>在函数体里面找函数声明，赋值</li>
+</ol>
+<h5 id="全局作用域的预编译">全局作用域的预编译</h5>
+<ol>
+<li>创建GO对象</li>
+<li>找变量声明 将变量名作为GO对象的属性名 值为undefined</li>
+<li>找函数声明，赋值</li>
+</ol>
+<h5 id="作用域链">作用域链</h5>
+<p>保存在[scope]中，用户访问不到但是存在，js引擎可以访问到</p>
+<h5 id="闭包的理解内部函数在外部可以调用">闭包的理解（内部函数在外部可以调用）</h5>
+<p><strong>闭包的引用：js的防抖和节流</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">防抖</span>
+<span class="kd">function</span> <span class="nx">debounce</span><span class="p">(</span><span class="nx">fun</span><span class="p">,</span><span class="nx">delay</span><span class="p">){</span>
+	<span class="kd">let</span> <span class="nx">timer</span>
+	<span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">){</span>
+		<span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+		<span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+			<span class="nx">fun</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span>
+		<span class="p">},</span><span class="nx">delay</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><pre><code>节流
+function throottle(fun,wait){
+	let timeout
+	return function(){
+		if(!timeout){
+			timeout = setTimeout(function(){
+				timeout=null
+				fun
+			},wait)
+		}
+	}
+}
+</code></pre><h5 id="深拷贝浅拷贝">深拷贝浅拷贝</h5>
+<p>　　JS分两种数据类型：</p>
+<p>　　　　<strong>基本数据类型</strong>（存放在栈中）**：**Number、String、Boolean、Null、 Undefined、Symbol（ES6），**这些类型可以直接操作保存在变量中的实际值。</p>
+<p>　　　　<strong>引用数据类型</strong>（存放在堆内存中的对象）：<strong>Object（在JS中除了基本数据类型以外的都是对象，数据是对象，函数是对象，正则表达式是对象）</strong></p>
+<p>​				赋值：</p>
+<p>​				浅拷贝：</p>
+<p>​				深拷贝：</p>
+<h5 id="绑定this指向">绑定this指向</h5>
+<ul>
+<li>call</li>
+<li>apply</li>
+<li>bind</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>vue中axios的封装</title>
@@ -296,140 +430,6 @@ git push -f origin master
 （无响应则再次运行同一代码，最多两次）
 </code></pre><p>ok!</p>
 ]]></content>
-		</item>
-		
-		<item>
-			<title></title>
-			<link>https://Littlehalo.github.io/posts/js%E4%B8%AD%E7%9A%84constructor/</link>
-			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-			
-			<guid>https://Littlehalo.github.io/posts/js%E4%B8%AD%E7%9A%84constructor/</guid>
-			<description> __proto__和constructor属性是对象所独有的； prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和constructor属性。 __proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，然后返回undefined，再往上找就相当于在null上取值，会报错。通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。 prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1.proto === Foo.prototype。 constructor属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向Function。 另外 proto 属性是浏览器对es5的实现，而不是es标准。  </description>
-			<content type="html"><![CDATA[<ol>
-<li>__proto__和<strong>constructor</strong>属性是对象所独有的；</li>
-<li><strong>prototype</strong>属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和<strong>constructor</strong>属性。 __proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，然后返回<strong>undefined</strong>，再往上找就相当于在<strong>null</strong>上取值，会报错。通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。</li>
-<li><strong>prototype</strong>属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1.<strong>proto</strong> === <strong>Foo</strong>.<strong>prototype</strong>。</li>
-<li><strong>constructor</strong>属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向<strong>Function</strong>。 另外 <strong>proto</strong> 属性是浏览器对es5的实现，而不是es标准。</li>
-</ol>
-<p><img src="https://pic.xiaohuochai.site/blog/JS_ECMA_grammer_proto.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/02/09/BQ6zpe1Z3NGHa48.png" alt="1.png"></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title></title>
-			<link>https://Littlehalo.github.io/posts/js%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
-			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-			
-			<guid>https://Littlehalo.github.io/posts/js%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
-			<description>函数作用域预编译  创建ao对象 找形参和变量声明 将形参和变量名 当做AO对象的属性名，值为undefined 实参形参统一 在函数体里面找函数声明，赋值  全局作用域的预编译  创建GO对象 找变量声明 将变量名作为GO对象的属性名 值为undefined 找函数声明，赋值  作用域链 保存在[scope]中，用户访问不到但是存在，js引擎可以访问到
-闭包的理解（内部函数在外部可以调用） 闭包的引用：js的防抖和节流
-防抖function debounce(fun,delay){let timerreturn function(args){clearTimeout(timer)timer = setTimeout(function(){fun(args)},delay)}}节流function throottle(fun,wait){let timeoutreturn function(){if(!timeout){timeout = setTimeout(function(){timeout=nullfun},wait)}}}深拷贝浅拷贝 　JS分两种数据类型：
-　基本数据类型（存放在栈中）**：**Number、String、Boolean、Null、 Undefined、Symbol（ES6），**这些类型可以直接操作保存在变量中的实际值。
-　引用数据类型（存放在堆内存中的对象）：Object（在JS中除了基本数据类型以外的都是对象，数据是对象，函数是对象，正则表达式是对象）
-​	赋值：
-​	浅拷贝：
-​	深拷贝：
-绑定this指向  call apply bind  </description>
-			<content type="html"><![CDATA[<h5 id="函数作用域预编译">函数作用域预编译</h5>
-<ol>
-<li>创建ao对象</li>
-<li>找形参和变量声明 将形参和变量名 当做AO对象的属性名，值为undefined</li>
-<li>实参形参统一</li>
-<li>在函数体里面找函数声明，赋值</li>
-</ol>
-<h5 id="全局作用域的预编译">全局作用域的预编译</h5>
-<ol>
-<li>创建GO对象</li>
-<li>找变量声明 将变量名作为GO对象的属性名 值为undefined</li>
-<li>找函数声明，赋值</li>
-</ol>
-<h5 id="作用域链">作用域链</h5>
-<p>保存在[scope]中，用户访问不到但是存在，js引擎可以访问到</p>
-<h5 id="闭包的理解内部函数在外部可以调用">闭包的理解（内部函数在外部可以调用）</h5>
-<p><strong>闭包的引用：js的防抖和节流</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">防抖</span>
-<span class="kd">function</span> <span class="nx">debounce</span><span class="p">(</span><span class="nx">fun</span><span class="p">,</span><span class="nx">delay</span><span class="p">){</span>
-	<span class="kd">let</span> <span class="nx">timer</span>
-	<span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">){</span>
-		<span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
-		<span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-			<span class="nx">fun</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span>
-		<span class="p">},</span><span class="nx">delay</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><pre><code>节流
-function throottle(fun,wait){
-	let timeout
-	return function(){
-		if(!timeout){
-			timeout = setTimeout(function(){
-				timeout=null
-				fun
-			},wait)
-		}
-	}
-}
-</code></pre><h5 id="深拷贝浅拷贝">深拷贝浅拷贝</h5>
-<p>　　JS分两种数据类型：</p>
-<p>　　　　<strong>基本数据类型</strong>（存放在栈中）**：**Number、String、Boolean、Null、 Undefined、Symbol（ES6），**这些类型可以直接操作保存在变量中的实际值。</p>
-<p>　　　　<strong>引用数据类型</strong>（存放在堆内存中的对象）：<strong>Object（在JS中除了基本数据类型以外的都是对象，数据是对象，函数是对象，正则表达式是对象）</strong></p>
-<p>​				赋值：</p>
-<p>​				浅拷贝：</p>
-<p>​				深拷贝：</p>
-<h5 id="绑定this指向">绑定this指向</h5>
-<ul>
-<li>call</li>
-<li>apply</li>
-<li>bind</li>
-</ul>
-]]></content>
-		</item>
-		
-		<item>
-			<title></title>
-			<link>https://Littlehalo.github.io/posts/object.prototype.tostring.call/</link>
-			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-			
-			<guid>https://Littlehalo.github.io/posts/object.prototype.tostring.call/</guid>
-			<description>使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)
-//1.判断基本类型：Object.prototype.toString.call(null);//”[object Null]”Object.prototype.toString.call(undefined);//”[object Undefined]”Object.prototype.toString.call(“abc”);//”[object String]”Object.prototype.toString.call(123);//”[object Number]”Object.prototype.toString.call(true);//”[object Boolean]”//2.判断原生引用类型：//函数类型Function fn(){console.log(“test”);}Object.prototype.toString.call(fn);//”[object Function]”//日期类型var date = new Date();Object.prototype.toString.call(date);//”[object Date]”// 数组类型var arr = [1,2,3];Object.prototype.toString.call(arr);//”[object Array]”//正则表达式var reg = /[hbc]at/gi;Object.prototype.toString.call(arr);//”[object Array]”//自定义类型function Person(name, age) {this.name = name;this.age = age;}var person = new Person(&amp;quot;Rose&amp;quot;, 18);Object.prototype.toString.call(arr); //”[object Object]”//很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：console.log(person instanceof Person);//输出结果为true//3.判断原生JSON对象： var isNativeJSON = window.</description>
-			<content type="html"><![CDATA[<p>使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)</p>
-<pre><code>//1.判断基本类型：
- Object.prototype.toString.call(null);//”[object Null]”
- Object.prototype.toString.call(undefined);//”[object Undefined]”
- Object.prototype.toString.call(“abc”);//”[object String]”
- Object.prototype.toString.call(123);//”[object Number]”
- Object.prototype.toString.call(true);//”[object Boolean]”
- 
-//2.判断原生引用类型：
- //函数类型
-  Function fn(){console.log(“test”);}
-  Object.prototype.toString.call(fn);//”[object Function]”
- //日期类型
-  var date = new Date();
-  Object.prototype.toString.call(date);//”[object Date]”
-// 数组类型
-  var arr = [1,2,3];
-  Object.prototype.toString.call(arr);//”[object Array]”
- //正则表达式
-  var reg = /[hbc]at/gi;
-  Object.prototype.toString.call(arr);//”[object Array]”
- //自定义类型
-  function Person(name, age) {
-      this.name = name;
-      this.age = age;
-  }
-  var person = new Person(&quot;Rose&quot;, 18);
-  Object.prototype.toString.call(arr); //”[object Object]”
- //很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：
- console.log(person instanceof Person);//输出结果为true
- 
-//3.判断原生JSON对象：                                                                                            
-var isNativeJSON = window.JSON &amp;&amp; Object.prototype.toString.call(JSON);
-console.log(isNativeJSON);//输出结果为”[object JSON]”说明JSON是原生的，否则不是；
-//注意：Object.prototype.toString()本身是允许被修改的，而我们目前所讨论的关于Object.prototype.toString()这个方法的应用都是假设toString()方法未被修改为前提的。
-</code></pre>]]></content>
 		</item>
 		
 	</channel>

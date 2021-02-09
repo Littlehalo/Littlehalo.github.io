@@ -7,22 +7,24 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
-<meta itemprop="name" content="">
+<meta itemprop="name" content="Object.prototype.toString.call()">
 <meta itemprop="description" content="使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)
 //1.判断基本类型：Object.prototype.toString.call(null);//”[object Null]”Object.prototype.toString.call(undefined);//”[object Undefined]”Object.prototype.toString.call(“abc”);//”[object String]”Object.prototype.toString.call(123);//”[object Number]”Object.prototype.toString.call(true);//”[object Boolean]”//2.判断原生引用类型：//函数类型Function fn(){console.log(“test”);}Object.prototype.toString.call(fn);//”[object Function]”//日期类型var date = new Date();Object.prototype.toString.call(date);//”[object Date]”// 数组类型var arr = [1,2,3];Object.prototype.toString.call(arr);//”[object Array]”//正则表达式var reg = /[hbc]at/gi;Object.prototype.toString.call(arr);//”[object Array]”//自定义类型function Person(name, age) {this.name = name;this.age = age;}var person = new Person(&quot;Rose&quot;, 18);Object.prototype.toString.call(arr); //”[object Object]”//很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：console.log(person instanceof Person);//输出结果为true//3.判断原生JSON对象： var isNativeJSON = window.">
-
+<meta itemprop="datePublished" content="2021-02-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-02-09T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="78">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Object.prototype.toString.call()" />
 <meta property="og:description" content="使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)
 //1.判断基本类型：Object.prototype.toString.call(null);//”[object Null]”Object.prototype.toString.call(undefined);//”[object Undefined]”Object.prototype.toString.call(“abc”);//”[object String]”Object.prototype.toString.call(123);//”[object Number]”Object.prototype.toString.call(true);//”[object Boolean]”//2.判断原生引用类型：//函数类型Function fn(){console.log(“test”);}Object.prototype.toString.call(fn);//”[object Function]”//日期类型var date = new Date();Object.prototype.toString.call(date);//”[object Date]”// 数组类型var arr = [1,2,3];Object.prototype.toString.call(arr);//”[object Array]”//正则表达式var reg = /[hbc]at/gi;Object.prototype.toString.call(arr);//”[object Array]”//自定义类型function Person(name, age) {this.name = name;this.age = age;}var person = new Person(&quot;Rose&quot;, 18);Object.prototype.toString.call(arr); //”[object Object]”//很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：console.log(person instanceof Person);//输出结果为true//3.判断原生JSON对象： var isNativeJSON = window." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Littlehalo.github.io/posts/object.prototype.tostring.call/" />
-
+<meta property="article:published_time" content="2021-02-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-09T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
+<meta name="twitter:title" content="Object.prototype.toString.call()"/>
 <meta name="twitter:description" content="使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)
 //1.判断基本类型：Object.prototype.toString.call(null);//”[object Null]”Object.prototype.toString.call(undefined);//”[object Undefined]”Object.prototype.toString.call(“abc”);//”[object String]”Object.prototype.toString.call(123);//”[object Number]”Object.prototype.toString.call(true);//”[object Boolean]”//2.判断原生引用类型：//函数类型Function fn(){console.log(“test”);}Object.prototype.toString.call(fn);//”[object Function]”//日期类型var date = new Date();Object.prototype.toString.call(date);//”[object Date]”// 数组类型var arr = [1,2,3];Object.prototype.toString.call(arr);//”[object Array]”//正则表达式var reg = /[hbc]at/gi;Object.prototype.toString.call(arr);//”[object Array]”//自定义类型function Person(name, age) {this.name = name;this.age = age;}var person = new Person(&quot;Rose&quot;, 18);Object.prototype.toString.call(arr); //”[object Object]”//很明显这种方法不能准确判断person是Person类的实例，而只能用instanceof 操作符来进行判断，如下所示：console.log(person instanceof Person);//输出结果为true//3.判断原生JSON对象： var isNativeJSON = window."/>
 
@@ -33,7 +35,7 @@
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
 	<link rel="shortcut icon" href="/favicon.ico">
 
-	<title></title>
+	<title>Object.prototype.toString.call()</title>
 	<link rel="stylesheet" href="https://Littlehalo.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
 	
 </head>
@@ -69,8 +71,8 @@
 	<main class="site-main section-inner animated fadeIn faster">
 		<article class="thin">
 			<header class="post-header">
-				<div class="post-meta"><span>Jan 1, 0001</span></div>
-				<h1></h1>
+				<div class="post-meta"><span>Feb 9, 2021</span></div>
+				<h1>Object.prototype.toString.call()</h1>
 			</header>
 			<div class="content">
 				<p>使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下： Object.prototype.toString.call(value)</p>
@@ -112,13 +114,17 @@ console.log(isNativeJSON);//输出结果为”[object JSON]”说明JSON是原�
 			</div>
 			<hr class="post-end">
 			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>liuhuang</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>78 Words</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>0001-01-01 08:00 &#43;0800</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2021-02-09 08:00 &#43;0800</p>
 			</footer>
 		</article>
 		<div class="post-nav thin">
-			<a class="next-post" href="https://Littlehalo.github.io/posts/js%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/">
-				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span></span>
+			<a class="next-post" href="https://Littlehalo.github.io/posts/js%E4%B8%AD%E7%9A%84constructor/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>constructor</span>
+			</a>
+			<a class="prev-post" href="https://Littlehalo.github.io/posts/js%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>函数作用域预编译</span>
 			</a>
 		</div>
 		<div id="comments" class="thin">

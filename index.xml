@@ -13,6 +13,35 @@
     
     
     <item>
+      <title>js的一些坑坑洼洼</title>
+      <link>https://Littlehalo.github.io/posts/js%E4%B8%80%E4%BA%9B%E5%9D%91%E5%9D%91%E6%B4%BC%E6%B4%BC/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/posts/js%E4%B8%80%E4%BA%9B%E5%9D%91%E5%9D%91%E6%B4%BC%E6%B4%BC/</guid>
+      <description>对象是最复杂的数据类型，又可以分成三个子类型。  狭义的对象（object） 数组（array） 函数（function）  javaScript 有三种方法，可以确定一个值到底是什么类型。  typeof运算符 instanceof运算符 Object.prototype.toString方法  underfine和null的区别 区别是这样的：null是一个表示“空”的对象，转为数值时为0；undefined是一个表示&amp;quot;此处无定义&amp;quot;的原始值，转为数值时为NaN。
+布尔值 如果 JavaScript 预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。转换规则是除了下面六个值被转为false，其他值都视为true。
+ undefined null false 0 NaN &amp;quot;&amp;quot;或&#39;&#39;（空字符串）  注意，空数组（[]）和空对象（{}）对应的布尔值，都是true。
+parseInt()  parseInt方法用于将字符串转为整数 如果字符串头部有空格，空格会被自动去除  行首{foo：123} JavaScript 引擎读到上面这行代码，会发现可能有两种含义。第一种可能是，这是一个表达式，表示一个包含foo属性的对象；第二种可能是，这是一个语句，表示一个代码区块，里面有一个标签foo，指向表达式123。为了避免这种歧义，JavaScript 引擎的做法是，如果遇到这种情况，无法确定是对象还是代码块，一律解释为代码块。
+如果要解释为对象，最好在大括号前加上圆括号。因为圆括号的里面，只能是表达式，所以确保大括号只能解释为对象。
+var foo = &#39;bar&#39;;var obj = {foo: 1,bar: 2};obj.foo // 1obj[foo]上面代码中，引用对象obj的foo属性时，如果使用点运算符，foo就是字符串；如果使用方括号运算符，但是不使用引号，那么foo就是一个变量，指向字符串bar。
+arguments 由于 JavaScript 允许函数有不定数目的参数，所以需要一种机制，可以在函数体内部读取所有参数。这就是arguments对象的由来。
+闭包 function f1() {var n = 999;function f2() {console.</description>
+    </item>
+    
+    <item>
+      <title>vue的双向绑定原理</title>
+      <link>https://Littlehalo.github.io/posts/vue%E7%9A%84%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/posts/vue%E7%9A%84%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/</guid>
+      <description>Object,defineproperty &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;inputOne&amp;quot;&amp;gt;&amp;lt;h1 id=&amp;quot;h1One&amp;quot;&amp;gt;&amp;lt;/h1&amp;gt;//获取input，h1节点inputOne，h1One//声明对象objvar obj = {value:&#39;&#39;}Object.defineProperty(obj,&#39;value&#39;,{set(val){h1One.innerText = val}})inputOne.onkeyup = function(e){obj.value = e.target.value4 }发布订阅模式 发布&amp;mdash;订阅模式它定义了对象间的一种一对多的关系，让多个观察者对象同时监听某一个主题对象，当一个对象发生改变时，所有依赖于它的对象都将得到通知。
+发布订阅模式的优点：
+ 支持简单的广播通信，当对象状态发生改变时，会自动通知已经订阅过的对象。 发布者与订阅者耦合性降低，发布者只管发布一条消息出去，它不关心这条消息如何被订阅者使用，同时，订阅者只监听发布者的事件名，只要发布者的事件名不变，它不管发布者如何改变；  对于第一点，我们日常工作中也经常使用到，比如我们的ajax请求，请求有成功(success)和失败(error)的回调函数，我们可以订阅ajax的success和error事件。我们并不关心对象在异步运行的状态，我们只关心success的时候或者error的时候我们要做点我们自己的事情就可以了~
+发布订阅模式的缺点：
+ 创建订阅者需要消耗一定的时间和内存。 虽然可以弱化对象之间的联系，如果过度使用的话，反而使代码不好理解及代码不好维护等等。  </description>
+    </item>
+    
+    <item>
       <title>constructor</title>
       <link>https://Littlehalo.github.io/posts/js%E4%B8%AD%E7%9A%84constructor/</link>
       <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>

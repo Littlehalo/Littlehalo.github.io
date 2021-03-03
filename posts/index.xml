@@ -6,8 +6,247 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zh-CN</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://Littlehalo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>console控制台</title>
+			<link>https://Littlehalo.github.io/posts/console-%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%8E%A7%E5%88%B6%E5%8F%B0/</link>
+			<pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/console-%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%8E%A7%E5%88%B6%E5%8F%B0/</guid>
+			<description>打开开发者工具以后，顶端有多个面板。
+ Elements：查看网页的 HTML 源码和 CSS 代码。 Resources：查看网页加载的各种资源文件（比如代码文件、字体文件 CSS 文件等），以及在硬盘上创建的各种内容（比如本地缓存、Cookie、Local Storage等）。 Network：查看网页的 HTTP 通信情况。 Sources：查看网页加载的脚本源码。 Timeline：查看各种网页行为随时间变化的情况。 Performance：查看网页的性能情况，比如 CPU 和内存消耗。 Console：用来运行 JavaScript 命令。  console.log() console.log方法用于在控制台输出信息。它可以接受一个或多个参数，将它们连接起来输出。
+console.log(&#39;Hello World&#39;)// Hello Worldconsole.log(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)// a b cconsole.table() 对于某些复合类型的数据，console.table方法可以将其转为表格显示。
+console.dir() dir方法用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。
+console.time()，console.timeEnd() 这两个方法用于计时，可以算出一个操作所花费的准确时间。
+console.time(&#39;Array initialize&#39;);var array= new Array(1000000);for (var i = array.length - 1; i &amp;gt;= 0; i--) {array[i] = new Object();};console.timeEnd(&#39;Array initialize&#39;);// Array initialize: 1914.</description>
+			<content type="html"><![CDATA[<p>打开开发者工具以后，顶端有多个面板。</p>
+<ul>
+<li><strong>Elements</strong>：查看网页的 HTML 源码和 CSS 代码。</li>
+<li><strong>Resources</strong>：查看网页加载的各种资源文件（比如代码文件、字体文件 CSS 文件等），以及在硬盘上创建的各种内容（比如本地缓存、Cookie、Local Storage等）。</li>
+<li><strong>Network</strong>：查看网页的 HTTP 通信情况。</li>
+<li><strong>Sources</strong>：查看网页加载的脚本源码。</li>
+<li><strong>Timeline</strong>：查看各种网页行为随时间变化的情况。</li>
+<li><strong>Performance</strong>：查看网页的性能情况，比如 CPU 和内存消耗。</li>
+<li><strong>Console</strong>：用来运行 JavaScript 命令。</li>
+</ul>
+<h4 id="consolelog">console.log()</h4>
+<p><code>console.log</code>方法用于在控制台输出信息。它可以接受一个或多个参数，将它们连接起来输出。</p>
+<pre><code>console.log('Hello World')
+// Hello World
+console.log('a', 'b', 'c')
+// a b c
+</code></pre><h4 id="consoletable">console.table()</h4>
+<p>对于某些复合类型的数据，<code>console.table</code>方法可以将其转为表格显示。</p>
+<h4 id="consoledir">console.dir()</h4>
+<p><code>dir</code>方法用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。</p>
+<h4 id="consoletimeconsoletimeend">console.time()，console.timeEnd()</h4>
+<p>这两个方法用于计时，可以算出一个操作所花费的准确时间。</p>
+<pre><code>console.time('Array initialize');
+
+var array= new Array(1000000);
+for (var i = array.length - 1; i &gt;= 0; i--) {
+  array[i] = new Object();
+};
+
+console.timeEnd('Array initialize');
+// Array initialize: 1914.481ms
+</code></pre><p><code>time</code>方法表示计时开始，<code>timeEnd</code>方法表示计时结束。它们的参数是计时器的名称。调用<code>timeEnd</code>方法之后，控制台会显示“计时器名称: 所耗费的时间”。</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>js对象</title>
+			<link>https://Littlehalo.github.io/posts/js%E5%AF%B9%E8%B1%A1/</link>
+			<pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://Littlehalo.github.io/posts/js%E5%AF%B9%E8%B1%A1/</guid>
+			<description>Array 对象 Array.isArray() Array.isArray方法返回一个布尔值，表示参数是否为数组。它可以弥补typeof运算符的不足。
+push()，pop()   push方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  pop方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。对空数组使用pop方法，不会报错，而是返回undefined
+  shift()，unshift()   shift()方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。
+  unshift()方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  var a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];a.unshift(&#39;x&#39;); // 4a // [&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]join()  join()方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。  var a = [1, 2, 3, 4];a.join(&#39; &#39;) // &#39;1 2 3 4&#39;a.join(&#39; | &#39;) // &amp;quot;1 | 2 | 3 | 4&amp;quot;a.join() // &amp;quot;1,2,3,4&amp;quot;通过call方法，这个方法也可以用于字符串或类似数组的对象。</description>
+			<content type="html"><![CDATA[<h4 id="array-对象">Array 对象</h4>
+<h4 id="arrayisarray">Array.isArray()</h4>
+<p><code>Array.isArray</code>方法返回一个布尔值，表示参数是否为数组。它可以弥补<code>typeof</code>运算符的不足。</p>
+<h4 id="pushpop">push()，pop()</h4>
+<ul>
+<li>
+<p><code>push</code>方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
+</li>
+<li>
+<p><code>pop</code>方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。对空数组使用<code>pop</code>方法，不会报错，而是返回<code>undefined</code></p>
+</li>
+</ul>
+<h4 id="shiftunshift">shift()，unshift()</h4>
+<ul>
+<li>
+<p><code>shift()</code>方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。</p>
+</li>
+<li>
+<p><code>unshift()</code>方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
+</li>
+</ul>
+<pre><code>var a = ['a', 'b', 'c'];
+
+a.unshift('x'); // 4
+a // ['x', 'a', 'b', 'c']
+</code></pre><h4 id="join">join()</h4>
+<ul>
+<li><code>join()</code>方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。</li>
+</ul>
+<pre><code>var a = [1, 2, 3, 4];
+
+a.join(' ') // '1 2 3 4'
+a.join(' | ') // &quot;1 | 2 | 3 | 4&quot;
+a.join() // &quot;1,2,3,4&quot;
+</code></pre><p>通过<code>call</code>方法，这个方法也可以用于字符串或类似数组的对象。</p>
+<pre><code>Array.prototype.join.call('hello', '-')
+// &quot;h-e-l-l-o&quot;
+
+var obj = { 0: 'a', 1: 'b', length: 2 };
+Array.prototype.join.call(obj, '-')
+// 'a-b'
+</code></pre><h4 id="concat">concat()</h4>
+<p><code>concat</code>方法用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，原数组不变。</p>
+<pre><code>['hello'].concat(['world'])
+// [&quot;hello&quot;, &quot;world&quot;]
+
+['hello'].concat(['world'], ['!'])
+// [&quot;hello&quot;, &quot;world&quot;, &quot;!&quot;]
+
+[].concat({a: 1}, {b: 2})
+// [{ a: 1 }, { b: 2 }]
+
+[2].concat({a: 1})
+// [2, {a: 1}]
+</code></pre><h4 id="slice">slice()</h4>
+<p><code>slice()</code>方法用于提取目标数组的一部分，返回一个新数组，原数组不变。</p>
+<pre><code>arr.slice(start, end);
+</code></pre><p>它的第一个参数为起始位置（从0开始，会包括在返回的新数组之中），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。</p>
+<pre><code>var a = ['a', 'b', 'c'];
+
+a.slice(0) // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+a.slice(1) // [&quot;b&quot;, &quot;c&quot;]
+a.slice(1, 2) // [&quot;b&quot;]
+a.slice(2, 6) // [&quot;c&quot;]
+a.slice() // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+</code></pre><h4 id="splice">splice()</h4>
+<p><code>splice()</code>方法用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。注意，该方法会改变原数组。</p>
+<pre><code>arr.splice(start, count, addElement1, addElement2, ...);
+</code></pre><p><code>splice</code>的第一个参数是删除的起始位置（从0开始），第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。</p>
+<pre><code>var a = ['a', 'b', 'c', 'd', 'e', 'f'];
+a.splice(4, 2) // [&quot;e&quot;, &quot;f&quot;]
+a // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+</code></pre><p>上面代码从原数组4号位置，删除了两个数组成员。</p>
+<pre><code>var a = ['a', 'b', 'c', 'd', 'e', 'f'];
+a.splice(4, 2, 1, 2) // [&quot;e&quot;, &quot;f&quot;]
+a // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, 1, 2]
+</code></pre><h4 id="sort">sort()</h4>
+<p><code>sort</code>方法对数组成员进行排序，默认是按照<strong>字典顺序排序</strong>。排序后，原数组将被改变。</p>
+<h4 id="map">map()</h4>
+<p><code>map</code>方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回。</p>
+<pre><code>var numbers = [1, 2, 3];
+
+numbers.map(function (n) {
+  return n + 1;
+});
+// [2, 3, 4]
+
+numbers
+// [1, 2, 3]
+</code></pre><p>上面代码中，<code>numbers</code>数组的所有成员依次执行参数函数，运行结果组成一个新数组返回，原数组没有变化。</p>
+<p><code>map</code>方法接受一个函数作为参数。该函数调用时，<code>map</code>方法向它传入三个参数：当前成员、当前位置和数组本身。</p>
+<pre><code>[1, 2, 3].map(function(elem, index, arr) {
+  return elem * index;
+});
+// [0, 2, 6]
+</code></pre><h4 id="foreach">forEach()</h4>
+<p><code>forEach</code>方法与<code>map</code>方法很相似，也是对数组的所有成员依次执行参数函数。但是，<code>forEach</code>方法不返回值，只用来操作数据。这就是说，如果数组遍历的目的是为了得到返回值，那么使用<code>map</code>方法，否则使用<code>forEach</code>方法。</p>
+<p><code>forEach</code>的用法与<code>map</code>方法一致，参数是一个函数，该函数同样接受三个参数：当前值、当前位置、整个数组。</p>
+<pre><code>function log(element, index, array) {
+  console.log('[' + index + '] = ' + element);
+}
+
+[2, 5, 9].forEach(log);
+// [0] = 2
+// [1] = 5
+// [2] = 9
+</code></pre><h4 id="filter">filter()</h4>
+<p><code>filter</code>方法用于过滤数组成员，满足条件的成员组成一个新数组返回。</p>
+<p>它的参数是一个函数，所有数组成员依次执行该函数，返回结果为<code>true</code>的成员组成一个新数组返回。该方法不会改变原数组。</p>
+<pre><code>[1, 2, 3, 4, 5].filter(function (elem) {
+  return (elem &gt; 3);
+})
+// [4, 5]
+</code></pre><p>上面代码将大于<code>3</code>的数组成员，作为一个新数组返回。</p>
+<pre><code>var arr = [0, 1, 'a', false];
+
+arr.filter(Boolean)
+// [1, &quot;a&quot;]
+</code></pre><p>上面代码中，<code>filter</code>方法返回数组<code>arr</code>里面所有布尔值为<code>true</code>的成员。</p>
+<p><code>filter</code>方法的参数函数可以接受三个参数：当前成员，当前位置和整个数组。</p>
+<pre><code>[1, 2, 3, 4, 5].filter(function (elem, index, arr) {
+  return index % 2 === 0;
+});
+// [1, 3, 5]
+</code></pre><h4 id="someevery">some()，every()</h4>
+<p>这两个方法类似“断言”（assert），返回一个布尔值，表示判断数组成员是否符合某种条件。</p>
+<p>它们接受一个函数作为参数，所有数组成员依次执行该函数。该函数接受三个参数：当前成员、当前位置和整个数组，然后返回一个布尔值。</p>
+<p><code>some</code>方法是只要一个成员的返回值是<code>true</code>，则整个<code>some</code>方法的返回值就是<code>true</code>，否则返回<code>false</code>。</p>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+arr.some(function (elem, index, arr) {
+  return elem &gt;= 3;
+});
+// true
+</code></pre><p>上面代码中，如果数组<code>arr</code>有一个成员大于等于3，<code>some</code>方法就返回<code>true</code>。</p>
+<p><code>every</code>方法是所有成员的返回值都是<code>true</code>，整个<code>every</code>方法才返回<code>true</code>，否则返回<code>false</code>。</p>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+arr.every(function (elem, index, arr) {
+  return elem &gt;= 3;
+});
+// false
+</code></pre><p>上面代码中，数组<code>arr</code>并非所有成员大于等于<code>3</code>，所以返回<code>false</code>。</p>
+<h4 id="reducereduceright">reduce()，reduceRight()</h4>
+<p><code>reduce</code>方法和<code>reduceRight</code>方法依次处理数组的每个成员，最终累计为一个值。它们的差别是，<code>reduce</code>是从左到右处理（从第一个成员到最后一个成员），<code>reduceRight</code>则是从右到左（从最后一个成员到第一个成员），其他完全一样。</p>
+<pre><code>[1, 2, 3, 4, 5].reduce(function (a, b) {
+  console.log(a, b);
+  return a + b;
+})
+// 1 2
+// 3 3
+// 6 4
+// 10 5
+//最后结果：15
+</code></pre><p>上面代码中，<code>reduce</code>方法求出数组所有成员的和。第一次执行，<code>a</code>是数组的第一个成员<code>1</code>，<code>b</code>是数组的第二个成员<code>2</code>。第二次执行，<code>a</code>为上一轮的返回值<code>3</code>，<code>b</code>为第三个成员<code>3</code>。第三次执行，<code>a</code>为上一轮的返回值<code>6</code>，<code>b</code>为第四个成员<code>4</code>。第四次执行，<code>a</code>为上一轮返回值<code>10</code>，<code>b</code>为第五个成员<code>5</code>。至此所有成员遍历完成，整个方法的返回值就是最后一轮的返回值<code>15</code>。</p>
+<p><code>reduce</code>方法和<code>reduceRight</code>方法的第一个参数都是一个函数。该函数接受以下四个参数。</p>
+<ol>
+<li>累积变量，默认为数组的第一个成员</li>
+<li>当前变量，默认为数组的第二个成员</li>
+<li>当前位置（从0开始）</li>
+<li>原数组</li>
+</ol>
+<p>这四个参数之中，只有前两个是必须的，后两个则是可选的。</p>
+<h4 id="indexoflastindexof">indexOf()，lastIndexOf()</h4>
+<p><code>indexOf</code>方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回<code>-1</code>。</p>
+<pre><code>var a = ['a', 'b', 'c'];
+
+a.indexOf('b') // 1
+a.indexOf('y') // -1
+</code></pre><p><code>indexOf</code>方法还可以接受第二个参数，表示搜索的开始位置。</p>
+<pre><code>['a', 'b', 'c'].indexOf('a', 1) // -1
+</code></pre><p>上面代码从1号位置开始搜索字符<code>a</code>，结果为<code>-1</code>，表示没有搜索到。</p>
+<p><code>lastIndexOf</code>方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回<code>-1</code>。</p>
+<pre><code>var a = [2, 5, 9, 2];
+a.lastIndexOf(2) // 3
+a.lastIndexOf(7) // -1
+</code></pre><p>注意，这两个方法不能用来搜索<code>NaN</code>的位置，即它们无法确定数组成员是否包含<code>NaN</code>。</p>
+<pre><code>[NaN].indexOf(NaN) // -1
+[NaN].lastIndexOf(NaN) // -1
+</code></pre>]]></content>
+		</item>
 		
 		<item>
 			<title>js的一些坑坑洼洼</title>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alis on LiuHuang&#39;s Blog</title>
+    <link>https://Littlehalo.github.io/ali/</link>
+    <description>Recent content in Alis on LiuHuang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 03 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Littlehalo.github.io/ali/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>面试题目</title>
+      <link>https://Littlehalo.github.io/ali/%E9%9D%A2%E8%AF%951/</link>
+      <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/ali/%E9%9D%A2%E8%AF%951/</guid>
+      <description>将类数组转化为数组的方法  通过Array.prototype.slice.call()将类数组对象传入即可 Array.from() 扩展运算符var args = [...arguments] var arr = $.makeArray(arguments)  js判断数组的方法   instanceof 操作符判断 用法：arr instanceof Array   **对象构造函数的 constructor判断 ** 用法：arr.constructor === Array   Array 原型链上的 isPrototypeOf 用法：Array.prototype.isPrototypeOf(arr)
+  Object.getPrototypeOf 用法：Object.getPrototypeOf(arr) === Array.prototype   Object.prototype.toString 用法：Object.prototype.toString.call(arr) === &amp;lsquo;[object Array]&#39;   Array.isArray 用法：Array.isArray(arr)   AMD与CMD和CommonJs </description>
+    </item>
+    
+    <item>
+      <title>jsonp跨域问题</title>
+      <link>https://Littlehalo.github.io/ali/jsonp%E8%B7%A8%E5%9F%9F/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Littlehalo.github.io/ali/jsonp%E8%B7%A8%E5%9F%9F/</guid>
+      <description>有关前端jsonp跨域问题（请求本地文件产生的跨域问题）
+jsonp原理  var script = document.createElement(&amp;quot;script&amp;quot;);script.src=&amp;quot;./jsonp.txt?callback=demo&amp;quot;document.body.appendChild(script)function demo(res){console.log(res)}.html&amp;lt;script&amp;gt;function demo(res){console.log(res)}&amp;lt;/script&amp;gt;&amp;lt;script src=&amp;quot;./jsonp.txt?callback=demo&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;.txt本地文件demo({&amp;quot;pro&amp;quot;:[{&amp;quot;name&amp;quot;:&amp;quot;tom&amp;quot;},{&amp;quot;sex&amp;quot;:&amp;quot;111&amp;quot;},{&amp;quot;job&amp;quot;:&amp;quot;w123b&amp;quot;}]})ajax解决 &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;// 谷歌浏览器在访问本地文件时 存在跨域问题$.ajax({url: &#39;jsonp.txt&#39;,type: &#39;get&#39;,dataType:&#39;jsonp&#39;,jsonp:&#39;callback&#39;,jsonpCallback:&#39;demo&#39;,success: function (demo) {console.log(demo)}})&amp;lt;/script&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

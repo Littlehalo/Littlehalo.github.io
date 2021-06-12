@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="HTML   谈谈你对 HTML5 的理解（从语义化方向延伸到新标签）
+  块级元素和行内元素的区别（从布局，还有以及height属性上）
+  link 和 @import 的区别
+这就是两种引用方式的常见用法，可以很清晰的看出
+ 1、从属关系：link是html的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等；而@import是css的语法，只有导入样式表的作用。 2、加载顺序：页面被加载时，link会和html同时被加载而；@import引入的 CSS 将在页面加载完毕后被加载。 3、兼容性：@import是 CSS2.1 才有的语法，所以只能在 IE5以上 才能识别；而link是 HTML 标签，所以不存在兼容性问题。 4、DOM：JavaScript只能控制dom去改变link标签引入的样式，而@import的样式不是dom可以控制的。 5、link方式的样式权重高于@import的权重。（如果对权重不是十分了解，可以看我之前的文章）    重绘和重排
+  defer 和 async 加载 script 的区别
+https://segmentfault.com/q/1010000000640869
+  有了解过SEO吗
+  CSS   标准盒模型和怪异盒模型（就是标准盒模型和IE的盒子模型）
+  伪类和伪元素的区别
+  伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息；
+  伪元素本质上是创建了一个有内容的虚拟容器；
+  CSS3中伪类和伪元素的语法不同； 伪类 :link :hover 伪元素 ::before ::after">
+
+<meta itemprop="wordCount" content="684">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
+<meta property="og:description" content="HTML   谈谈你对 HTML5 的理解（从语义化方向延伸到新标签）
+  块级元素和行内元素的区别（从布局，还有以及height属性上）
+  link 和 @import 的区别
+这就是两种引用方式的常见用法，可以很清晰的看出
+ 1、从属关系：link是html的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等；而@import是css的语法，只有导入样式表的作用。 2、加载顺序：页面被加载时，link会和html同时被加载而；@import引入的 CSS 将在页面加载完毕后被加载。 3、兼容性：@import是 CSS2.1 才有的语法，所以只能在 IE5以上 才能识别；而link是 HTML 标签，所以不存在兼容性问题。 4、DOM：JavaScript只能控制dom去改变link标签引入的样式，而@import的样式不是dom可以控制的。 5、link方式的样式权重高于@import的权重。（如果对权重不是十分了解，可以看我之前的文章）    重绘和重排
+  defer 和 async 加载 script 的区别
+https://segmentfault.com/q/1010000000640869
+  有了解过SEO吗
+  CSS   标准盒模型和怪异盒模型（就是标准盒模型和IE的盒子模型）
+  伪类和伪元素的区别
+  伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息；
+  伪元素本质上是创建了一个有内容的虚拟容器；
+  CSS3中伪类和伪元素的语法不同； 伪类 :link :hover 伪元素 ::before ::after" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Littlehalo.github.io/ali/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%88%86%E7%B1%BB/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="HTML   谈谈你对 HTML5 的理解（从语义化方向延伸到新标签）
+  块级元素和行内元素的区别（从布局，还有以及height属性上）
+  link 和 @import 的区别
+这就是两种引用方式的常见用法，可以很清晰的看出
+ 1、从属关系：link是html的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等；而@import是css的语法，只有导入样式表的作用。 2、加载顺序：页面被加载时，link会和html同时被加载而；@import引入的 CSS 将在页面加载完毕后被加载。 3、兼容性：@import是 CSS2.1 才有的语法，所以只能在 IE5以上 才能识别；而link是 HTML 标签，所以不存在兼容性问题。 4、DOM：JavaScript只能控制dom去改变link标签引入的样式，而@import的样式不是dom可以控制的。 5、link方式的样式权重高于@import的权重。（如果对权重不是十分了解，可以看我之前的文章）    重绘和重排
+  defer 和 async 加载 script 的区别
+https://segmentfault.com/q/1010000000640869
+  有了解过SEO吗
+  CSS   标准盒模型和怪异盒模型（就是标准盒模型和IE的盒子模型）
+  伪类和伪元素的区别
+  伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息；
+  伪元素本质上是创建了一个有内容的虚拟容器；
+  CSS3中伪类和伪元素的语法不同； 伪类 :link :hover 伪元素 ::before ::after"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title></title>
+	<link rel="stylesheet" href="https://Littlehalo.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://Littlehalo.github.io/">LiuHuang&#39;s Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://Littlehalo.github.io/posts/">博客</a>
+				<a href="https://Littlehalo.github.io/about-hugo/">关于</a>
+				<a href="https://Littlehalo.github.io/ali/">面试</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://Littlehalo.github.io/posts/">博客</a></li>
+			<li><a href="https://Littlehalo.github.io/about-hugo/">关于</a></li>
+			<li><a href="https://Littlehalo.github.io/ali/">面试</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1></h1>
+		<div class="content">
+			<h3 id="html">HTML<a href="#html" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>谈谈你对 HTML5 的理解（从语义化方向延伸到新标签）</p>
+</li>
+<li>
+<p>块级元素和行内元素的区别（从布局，还有以及height属性上）</p>
+</li>
+<li>
+<p>link 和 @import 的区别</p>
+<p>这就是两种引用方式的常见用法，可以很清晰的看出</p>
+<ul>
+<li>1、从属关系：link是html的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等；而@import是css的语法，只有导入样式表的作用。</li>
+<li>2、加载顺序：页面被加载时，link会和html同时被加载而；@import引入的 CSS 将在页面加载完毕后被加载。</li>
+<li>3、兼容性：@import是 CSS2.1 才有的语法，所以只能在 IE5以上 才能识别；而link是 HTML 标签，所以不存在兼容性问题。</li>
+<li>4、DOM：JavaScript只能控制dom去改变link标签引入的样式，而@import的样式不是dom可以控制的。</li>
+<li>5、link方式的样式权重高于@import的权重。（如果对权重不是十分了解，可以看我之前的文章）</li>
+</ul>
+</li>
+<li>
+<p>重绘和重排</p>
+</li>
+<li>
+<p>defer 和 async 加载 script 的区别</p>
+<p><a href="https://segmentfault.com/q/1010000000640869">https://segmentfault.com/q/1010000000640869</a></p>
+<p><img src="http://segmentfault.com/img/bVcQV0" alt=""></p>
+</li>
+<li>
+<p>有了解过SEO吗</p>
+</li>
+</ol>
+<h3 id="css">CSS<a href="#css" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>标准盒模型和怪异盒模型（就是标准盒模型和IE的盒子模型）</p>
+<p><img src="https://images2015.cnblogs.com/blog/793040/201511/793040-20151130140140858-2462296.jpg" alt=""></p>
+<p><img src="https://images2015.cnblogs.com/blog/793040/201511/793040-20151130140151233-1527652250.jpg" alt=""></p>
+</li>
+<li>
+<p>伪类和伪元素的区别</p>
+<ol>
+<li>
+<p>伪类本质上是为了<strong>弥补</strong>常规CSS<strong>选择器的不足</strong>，以便获取到更多信息；</p>
+</li>
+<li>
+<p>伪元素本质上是创建了一个<strong>有内容的虚拟容器</strong>；</p>
+</li>
+<li>
+<p>CSS3中伪类和伪元素的语法不同；  伪类 :link :hover     伪元素 ::before  ::after</p>
+</li>
+<li>
+<p>可以同时使用多个伪类，而只能同时使用一个伪元素；</p>
+</li>
+<li>
+<p>其中伪类和伪元素的根本区别在于：它们是否创造了<strong>新</strong>的元素,,  这个新创造的元素就叫 &ldquo;伪无素&rdquo; 。</p>
+<p>伪元素/伪对象：不存在在DOM文档中，是虚拟的元素，是创建新元素。 这个新元素(伪元素) 是某个元素的子元素，这个子元素虽然在逻辑上存在，但却并不实际存在于文档树中.</p>
+</li>
+</ol>
+<p>　   伪类：存在DOM文档中，(无标签,找不到, 只有符合触发条件时才能看到 ), 逻辑上存在但在文档树中却无须标识的“幽灵”分类。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1454235/201808/1454235-20180830180116203-1774458248.png" alt=""></p>
+</li>
+<li>
+<p>CSS 选择器有哪些</p>
+<p><a href="https://www.jianshu.com/p/1d6efea3db1c">https://www.jianshu.com/p/1d6efea3db1c</a></p>
+</li>
+<li>
+<p>CSS 样式的优先级是怎么样的</p>
+<p><strong>内联样式 &gt; id选择器样式 &gt; 类选择器样式 &gt; 元素选择器样式；</strong></p>
+</li>
+<li>
+<p>谈谈对BFC的理解（可以从BFC的触发条件，BFC的规则和应用回答，例如清除浮动和解决margin合并）</p>
+<p><img src="https://i.loli.net/2021/04/14/ry8SpUqCxkEmdMz.png" alt=""></p>
+<p>​	 BFC：块级格式化上下文，它是指一个独立的块级渲染区域，只有Block-level BOX参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。</p>
+<p>BFC触发条件:</p>
+<ul>
+<li>根元素，即 <code>HTML</code> 元素</li>
+<li><code>position</code> 的值, 为 <code>fixed/absolute</code></li>
+<li><code>float</code>, 不为 <code>none</code></li>
+<li><code>overflow</code>, 不为 <code>visible</code></li>
+<li><code>display</code> 的值为 <code>inline-block</code>、<code>table-cell</code>、<code>table-caption</code></li>
+</ul>
+<p>BFC的应用</p>
+<p>1.解决浮动塌陷问题（高度塌陷）</p>
+<p>2.自适应两栏布局</p>
+<p>3.利用BFC避免margin重叠</p>
+</li>
+<li>
+<p>position 有几个属性</p>
+<p><strong>1.static:默认位置</strong></p>
+<p><strong>2.relative:相对的</strong></p>
+<p>​       配合top,left,right,bottom来使用</p>
+<p>​       a.相对盒子原本的位置发生偏移</p>
+<p>​       b.如果没有trbl会以标准流显示</p>
+<p>​       c.在原来的位置占了位置</p>
+<p><strong>3.absolute:绝对的</strong></p>
+<p>​       a.如果没有父元素，那么trbl是相对body来定位</p>
+<p>​       b.如果有父元素，但父元素没有定位，那么还是相对body定位</p>
+<p>​       c.如果有父元素且父元素有定位，那以父元素为基础</p>
+<p>​       d.绝对定位之后的元素在页面不会占据位置</p>
+<p><strong>4.fixed：固定</strong></p>
+</li>
+<li>
+<p>谈谈你对 flex 布局的理解</p>
+</li>
+<li>
+<p>垂直居中</p>
+</li>
+</ol>
+<pre><code>/* 	方法一:
+			绝对定位方法：不确定当前div的宽度和高度，采用 transform: translate(-50%,-50%); 
+			当前div的父级添加相对定位（position: relative;） */
+		.section-one{
+			position: relative;
+		}
+		.items-one{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/* translate()函数是css3的新特性.在不知道自身宽高的情况下，可以利用它来进行水平垂直居中 */
+			transform: translate(-50%,-50%);
+			background-color: red;
+		}
+		
+		/* 方法二:
+			绝对定位方法:确定当前div的宽度和高度,采用margin值为当前div宽度高度一半的负值 */
+		.section-two{
+			position: relative;
+		}
+		.items-two{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -50px;
+			margin-top: -50px;
+			background-color: coral;
+		}
+		
+		/* 方法三:
+			绝对定位方法:绝对定位下top left right bottom 都设置0 ,magin:auto;*/
+		.section-three{
+			position: relative;
+		}
+		.items-three{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: yellow;
+		}
+		
+		/* 方法四: 
+			flex布局:父元素添加flex样式 ,父元素的宽高要设置*/
+		.section-four{
+			display: flex;
+			justify-content: center;	/* 弹性布局的左右居中对齐 */
+			align-items: center;		/*弹性布局的垂直居中对齐*/
+		}
+		.items-four{
+			background-color: greenyellow;
+		}
+		/* 方法八：
+			父元素设置:flex布局,子元素上使用：margin:auto; 居中展示*/
+		.section-eight{
+			 display: flex;
+		}
+		.items-eight{
+			background-color: crimson;
+			margin: auto;
+		}
+		/* 方法九：
+			父元素设置:flex布局,子元素上使用：margin:auto; 居中展示*/
+		.section-nine{
+			 display: table;
+		}
+		.items-nine{
+			display:table-cell;
+			vertical-align: middle;
+			background-color:darkcyan;
+		}
+	/* 方法五:
+		table-cell实现文字内容水平垂直居中 , 设置好之后margin属性失效 */
+		.section-five{
+			position: relative;
+		}
+		.items-five{
+			background-color: #6495ED;
+			/* 文字居中展示 */
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			position: relative;
+			top: 100px;
+			left: 75px;
+		}
+		
+		/* 	方法六 ：
+			父元素设置:grid栅格布局,子元素  align-self: center; justify-self: center;  居中展示 */
+		.section-six{
+			 display: grid;
+		}
+		.items-six{
+			align-self: center;
+			justify-self: center;
+		}
+		/* 方法七
+			父元素设置:grid栅格布局,align-content: center;justify-content: center; 居中展示*/
+		.section-seven{
+			 display: grid;
+			 align-content: center;
+			 justify-content: center;
+		}
+		.items-seven{
+			background-color: powderblue;
+		}
+		
+</code></pre><h3 id="js">JS<a href="#js" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>JS 的数据类型有哪些</p>
+<p>基本数据类型：string,null,undefined,boolean,number,symber（值表示唯一的，可以避免实例自定义的属性或方法覆盖原型上的属性或方法）</p>
+<p>引用数据类型：Object，Array，Function</p>
+</li>
+<li>
+<p>JS 原型和原型链有了解吗</p>
+<p><strong>原型的总结</strong>：</p>
+<ul>
+<li>
+<p>所有引用类型都有一个<code>__proto__</code>(隐式原型)属性，属性值是一个普通的对象</p>
+</li>
+<li>
+<p>所有函数都有一个prototype(原型)属性，属性值是一个普通的对象</p>
+</li>
+<li>
+<p>所有引用类型的<code>__proto__</code>属性指向它构造函数的prototype</p>
+<p><img src="https://img-blog.csdnimg.cn/20190623221321362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjYxNDA4MA==,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>谈谈你对原型的理解？
+在 JavaScript 中，每当定义一个对象（函数也是对象）时候，对象中都会包含一些预定义的属性。其中每个函数对象都有一个prototype 属性，这个属性指向函数的原型对象，使用原型对象的好处是所有对象实例共享它所包含的属性和方法</p>
+<p>什么是原型链？原型链解决的是什么问题？
+1）原型链解决的主要是继承问题
+2）每个对象拥有一个原型对象，通过 proto 指针指向其原型对象，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null(Object.proptotype.__proto__指向的是null)。这种关系被称为原型链(prototype chain)，通过原型链一个对象可以拥有定义在其他对象中的属性和方法
+3）构造函数 Parent、Parent.prototype 和 实例 p 的关系如下:(p.<strong>proto</strong> === Parent.prototype)</p>
+<p><img src="https://img-blog.csdnimg.cn/20190623221912165.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjYxNDA4MA==,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>3.<strong>prototype 和 proto 区别是什么</strong>？
+1）prototype是构造函数的属性
+2）<code>__proto__</code>是每个实例都有的属性，可以访问 [[prototype]] 属性
+3）实例的<code>__proto__</code>与其构造函数的prototype指向的是同一个对象</p>
+</li>
+</ul>
+</li>
+<li>
+<p>谈谈你对闭包的理解吧（可以从函数的作用域，还有内存泄漏拓展到垃圾回收，应用的话可以拓展到防抖和节流）</p>
+<p>闭包是有权访问其他函数作用域的局部变量的一个函数</p>
+<p><a href="https://www.jianshu.com/p/5337914cbc04">https://www.jianshu.com/p/5337914cbc04</a></p>
+</li>
+<li>
+<p>了解什么是event loop吗（可以拓展到同步任务，异步任务，以及宏任务和微任务）</p>
+<p><a href="https://juejin.cn/post/6844903512845860872">https://juejin.cn/post/6844903512845860872</a></p>
+<p><strong>宏队列，macrotask，也叫tasks。</strong> 一些异步任务的回调会依次进入macro task queue，等待后续被调用，这些异步任务包括：</p>
+<ul>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate (Node独有)</li>
+<li>requestAnimationFrame (浏览器独有)</li>
+<li>I/O</li>
+<li>UI rendering (浏览器独有)</li>
+</ul>
+<p><strong>微队列，microtask，也叫jobs。</strong> 另一些异步任务的回调会依次进入micro task queue，等待后续被调用，这些异步任务包括：</p>
+<ul>
+<li>process.nextTick (Node独有)</li>
+<li>Promise</li>
+<li>Object.observe</li>
+<li>MutationObserver</li>
+</ul>
+<p><strong>只有当resolve()后才会将then放入微任务</strong></p>
+</li>
+<li>
+<p>new 操作符具体做了什么</p>
+<ol>
+<li>创建一个空对象</li>
+<li>设置原型链</li>
+<li>让Func中的this指向obj，并执行Func的函数体。</li>
+<li>判断Func的返回值类型：</li>
+</ol>
+</li>
+<li>
+<p>call，apply和bind的区别（可以先讲讲call和apply的区别，再讲讲和它们和bind的区别）</p>
+<p>call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</p>
+</li>
+<li>
+<p>你了解柯里化吗</p>
+</li>
+<li>
+<p><strong>为什么js是单线程的：</strong></p>
+<p>这主要和js的用途有关，js是作为浏览器的脚本语言，主要是实现用户与浏览器的交互，以及操作dom；这决定了它只能是单线程，否则会带来很复杂的同步问题。 举个例子：如果js被设计了多线程，如果有一个线程要修改一个dom元素，另一个线程要删除这个dom元素，此时浏览器就会一脸茫然，不知所措。所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变</p>
+<p><strong>进程</strong>：是cpu分配资源的最小单位,<strong>线程</strong>：是cpu调度的最小单位</p>
+</li>
+<li>
+<p><strong>知道什么是深拷贝吗</strong></p>
+</li>
+<li>
+<p><strong>知道模块化的概念吗</strong></p>
+</li>
+</ol>
+<p>模块化好处：</p>
+<ul>
+<li>避免命名冲突(减少命名空间污染)</li>
+<li>更好的分离, 按需加载</li>
+<li>更高复用性</li>
+<li>高可维护性</li>
+</ul>
+<p>**1.1组件：**把重复的代码提取出来合并成为一个个组件，组件最重要的就是重用（复用），位于框架最底层，其他功能都依赖于组件，可供不同功能使用，独立性强。</p>
+<p>**1.2模块：**分属同一功能/业务的代码进行隔离（分装）成独立的模块，可以独立运行，以页面、功能或其他不同粒度划分程度不同的模块，位于业务框架层，模块间通过接口调用，目的是降低模块间的耦合，由之前的主应用与模块耦合，变为主应用与接口耦合，接口与模块耦合。</p>
+<p><strong>区别</strong></p>
+<p>**2.1组件：**就像一个个小的单位，多个组件可以组合成组件库，方便调用和复用，组件间也可以嵌套，小组件组合成大组件。</p>
+<p>**2.2模块：**就像是独立的功能和项目（如淘宝：注册、登录、购物、直播&hellip;），可以调用组件来组成模块，多个模块可以组合成业务框架。</p>
+<ol start="11">
+<li>
+<p><strong>了解事件委托（代理）吗（就是介绍冒泡和捕获的概念）</strong></p>
+<p>当用事件委托的时候，根本就不需要去遍历元素的子节点，只需要给父级元素添加事件就好了，其他的都是在js里面的执行，这样可以大大的减少dom操作，这才是事件委托的精髓所在。</p>
+</li>
+</ol>
+<h3 id="es6">ES6<a href="#es6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>let const 和 var 的区别</p>
+<ul>
+<li>
+<p>var声明变量存在变量提升，let和const不存在变量提升</p>
+</li>
+<li>
+<p>let 声明后可以修改变量。</p>
+</li>
+<li>
+<p>const是块级局部变量，只能进行一次赋值，即声明后不能再修改</p>
+</li>
+<li>
+<p>同一作用域下let和const不能声明同名变量，而var可以</p>
+</li>
+</ul>
+</li>
+<li>
+<p>箭头函数和普通函数的区别</p>
+<ul>
+<li>箭头函数的 this 永远指向其上下文的 this ，任何方法都改变不了其指向，如 call() , bind() , apply()</li>
+<li>普通函数的this指向调用它的那个对象</li>
+</ul>
+</li>
+<li>
+<p>ES6 模块导出和 CommJs 模块导出的区别</p>
+<ul>
+<li>
+<p>CommonJS  导入require ，导出module.exports={}</p>
+</li>
+<li>
+<p>Es6 引入是  import ，导出是  export export 和 export default的区别？</p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用过Promise吗，简单介绍一下它吧</p>
+<p>异步函数同步化解决方案</p>
+</li>
+<li>
+<p><strong>知道 async 和 await 吗，说一下实现思路</strong></p>
+<p>promise的语法糖</p>
+</li>
+<li>
+<p>说说 Set 和 Map 吧 (然后还可以延伸 WeakMap 和 WeakSet)</p>
+<p>Set存储的是不相同的元素，也就是不允许存在相同的元素。
+Map存储的是Key—Value键值对</p>
+</li>
+</ol>
+<h3 id="vue">Vue<a href="#vue" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>computed 和 watch 的区别</p>
+<p>methods：调用方法一定要有（）。methods方法页面刚加载时调用一次，结果不会缓存。methods里面是用来定义函数的，很显然，它需要手动调用才能执行。而不像watch和computed那样，“自动执行”预先定义的函数
+computed： 是计算属性，依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变，下一次获取 computed 的
+值时才会重新计算 computed 的值；
+watch：使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。更多的是「观察」的作用，类似于某些数据的监听回调 ，每当监听的数据变化时</p>
+<p>watch擅长处理的场景：一个数据影响多个数据
+computed擅长处理的场景：一个数据受多个数据影响</p>
+</li>
+<li>
+<p>介绍一下生命周期函数（也要理解父子组件的生命周期触发顺序）</p>
+<ul>
+<li>
+<p>beforeCreate</p>
+</li>
+<li>
+<p>created</p>
+</li>
+<li>
+<p>beforeMount</p>
+</li>
+<li>
+<p>mounted</p>
+<p>(</p>
+</li>
+</ul>
+<p>​     beforeUpdate</p>
+<p>​     updated</p>
+<pre><code> )
+</code></pre>
+<ul>
+<li>
+<p>beforeDestroy</p>
+</li>
+<li>
+<p>destroyed</p>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/13119812-5890a846b6efa045.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt=""></p>
+<p><a href="https://www.jianshu.com/p/410b6099be69">https://www.jianshu.com/p/410b6099be69</a></p>
+<p><a href="https://segmentfault.com/a/1190000011381906">https://segmentfault.com/a/1190000011381906</a></p>
+</li>
+<li>
+<p>组件之间的传参方式</p>
+<p>父组件传到子组件,通过props</p>
+<p>子组件像父组件传值，通过$emit</p>
+</li>
+<li>
+<p>v-if 和 v-show的区别</p>
+<p>v-if 适合运营条件不大可能改变；
+v-show 适合频繁切换。</p>
+<p>v-if直接删除节点，v-show是设置display属性为none</p>
+</li>
+<li>
+<p>v-for 中的 key 有什么用</p>
+<p>需要使用key来给每个节点做一个唯一标识，Diff算法就可以正确的识别此节点，找到正确的位置区插入新的节点。</p>
+</li>
+<li>
+<p>diff算法（同层比较）</p>
+<ul>
+<li>diff算法只进行同层比较，不会进行跨层比较</li>
+</ul>
+</li>
+<li>
+<p>虚拟DOM（Js 对象）</p>
+</li>
+<li>
+<p>css 样式中的 scoped</p>
+</li>
+<li>
+<p><strong>vue-router 的两种模式区别和实现原理</strong></p>
+<p><a href="https://juejin.cn/post/6844904151206330375">https://juejin.cn/post/6844904151206330375</a></p>
+</li>
+<li>
+<p>route 和 router 的区别</p>
+</li>
+<li>
+<p>介绍一下 vuex</p>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong></p>
+</li>
+<li>
+<p><strong>为什么mutations是同步的，actions 要是的异步的</strong></p>
+<ul>
+<li>mutations里的同步意义在于，每个mutation执行完毕之后，可以得到对应的状态，使用devtools可以跟踪状态的变化</li>
+<li>如果是异步的，就没法知道状态是什么时候更新的，才有了actions。</li>
+<li>actions用来专门处理异步，里面触发mutations，就可以很清楚的看到mutation是何时被记录下来的，并且立即查看他们对应的状态。这样异步更新也可以清楚看到状态的流程。</li>
+<li>actions只是一个架构，并不是必须的，它只是一个函数，在里面想干嘛干嘛，只要最后触发mutation就行。</li>
+</ul>
+</li>
+</ol>
+<h3 id="react">React<a href="#react" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>你觉得Vue 和 React 有什么区别</li>
+<li>setState是同步的还是异步的，为什么？</li>
+<li>key 的作用</li>
+<li>组件之间的传值方式</li>
+<li>简单说一下虚拟DOM</li>
+<li>生命周期</li>
+<li>类组件和函数式组件</li>
+<li>为什么 react 需要绑定 this</li>
+<li>常用的hooks</li>
+<li>useEffect 代表哪几个生命周期</li>
+</ol>
+<h3 id="小程序">小程序<a href="#小程序" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>生命周期</p>
+<p>onLaunch: function () {
+console.log(“App生命周期函数——onLaunch函数”);
+},
+onShow: function () {
+console.log(“App生命周期函数——onShow函数”);
+},
+onHide: function () {
+console.log(“App生命周期函数——onHide函数”);
+},
+onError: function (msg) {
+console.log(“App生命周期函数——onError函数”);
+}
+})</p>
+</li>
+<li>
+<p>switchTab, redictTo, navigateTo 的区别</p>
+</li>
+</ol>
+<h3 id="计算机网络">计算机网络<a href="#计算机网络" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>http 和 https的区别</p>
+<ul>
+<li>
+<p>https协议需要到CA申请证书，一般免费证书较少，因而需要一定费用。</p>
+</li>
+<li>
+<p>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl/tls加密传输协议。</p>
+</li>
+<li>
+<p>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+</li>
+<li>
+<p>http的连接很简单，是无状态的；HTTPS协议是由SSL/TLS+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>从地址栏输入URL 到页面加载发生了什么？</p>
+<ul>
+<li>浏览器的地址栏输入URL并按下回车。</li>
+<li>浏览器查找当前URL的DNS缓存记录。</li>
+<li>DNS解析URL对应的IP。</li>
+<li>根据IP建立TCP连接（三次握手）。</li>
+<li>HTTP发起请求。</li>
+<li>服务器处理请求，浏览器接收HTTP响应。</li>
+<li>渲染页面，构建DOM树。</li>
+<li>关闭TCP连接（四次挥手）</li>
+<li><a href="https://www.cnblogs.com/daijinxue/p/6640153.html">https://www.cnblogs.com/daijinxue/p/6640153.html</a></li>
+</ul>
+</li>
+<li>
+<p>DNS 解析规则</p>
+</li>
+<li>
+<p>TCP 和 UDP 的区别</p>
+</li>
+<li>
+<p>简单介绍一下状态码</p>
+</li>
+<li>
+<p>知道浏览器的缓存概念吗</p>
+</li>
+<li>
+<p>三次握手四次挥手</p>
+</li>
+<li>
+<p>常用的请求方法</p>
+</li>
+<li>
+<p>Post 和 Get 的区别</p>
+</li>
+</ol>
+<h3 id="其他">其他<a href="#其他" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>页面加载速度优化</li>
+<li>知道词法作用域吗</li>
+<li>图片加载的优化</li>
+<li>如果让你实现一个模块化你怎么实现</li>
+</ol>
+<h4 id="将类数组转化为数组的方法">将类数组转化为数组的方法<a href="#将类数组转化为数组的方法" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ol>
+<li>通过Array.prototype.slice.call()将类数组对象传入即可</li>
+<li>Array.from()</li>
+<li>扩展运算符<code>var args = [...arguments]</code></li>
+<li><code>var arr = $.makeArray(arguments)</code></li>
+</ol>
+<h4 id="js判断数组的方法">js判断数组的方法<a href="#js判断数组的方法" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ol>
+<li>
+<h5 id="instanceof-操作符判断-----用法arr-instanceof-array"><strong>instanceof 操作符判断</strong>     用法：arr instanceof Array<a href="#instanceof-操作符判断-----用法arr-instanceof-array" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</li>
+<li>
+<h5 id="对象构造函数的-constructor判断-----用法arrconstructor--array">**对象构造函数的 constructor判断 **    <strong>用法：arr.constructor === Array</strong><a href="#对象构造函数的-constructor判断-----用法arrconstructor--array" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</li>
+<li>
+<p><strong>Array 原型链上的 isPrototypeOf</strong>     <strong>用法：Array.prototype.isPrototypeOf(arr)</strong></p>
+</li>
+<li>
+<h5 id="objectgetprototypeof---用法objectgetprototypeofarr--arrayprototype"><strong>Object.getPrototypeOf</strong>   <strong>用法：Object.getPrototypeOf(arr) === Array.prototype</strong><a href="#objectgetprototypeof---用法objectgetprototypeofarr--arrayprototype" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</li>
+<li>
+<h5 id="objectprototypetostring---用法objectprototypetostringcallarr--object-array"><strong>Object.prototype.toString</strong>   <strong>用法：Object.prototype.toString.call(arr) === &lsquo;[object Array]'</strong><a href="#objectprototypetostring---用法objectprototypetostringcallarr--object-array" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</li>
+<li>
+<h5 id="arrayisarray-用法arrayisarrayarr"><strong>Array.isArray</strong> <strong>用法：Array.isArray(arr)</strong><a href="#arrayisarray-用法arrayisarrayarr" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</li>
+</ol>
+<h4 id="amd与cmd和commonjs">AMD与CMD和CommonJs<a href="#amd与cmd和commonjs" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://Littlehalo.github.io/">dorliu</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://Littlehalo.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://Littlehalo.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

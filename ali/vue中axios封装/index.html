@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="vue中axios的封装">
+<meta itemprop="description" content="关于axios在vue中的封装以及遇到的一些问题 在src目录下建立文件夹utils/http.js和api/api.js http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&gt; {// loadingreturn config}, error =&gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&gt; {return response}, error =&gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;&amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res.">
+<meta itemprop="datePublished" content="2021-02-08T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-02-08T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="585">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="vue中axios的封装" />
+<meta property="og:description" content="关于axios在vue中的封装以及遇到的一些问题 在src目录下建立文件夹utils/http.js和api/api.js http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&gt; {// loadingreturn config}, error =&gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&gt; {return response}, error =&gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;&amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Littlehalo.github.io/ali/vue%E4%B8%ADaxios%E5%B0%81%E8%A3%85/" />
+<meta property="article:published_time" content="2021-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vue中axios的封装"/>
+<meta name="twitter:description" content="关于axios在vue中的封装以及遇到的一些问题 在src目录下建立文件夹utils/http.js和api/api.js http.js配置 &#39;use strict&#39;import axios from &#39;axios&#39;import qs from &#39;qs&#39;axios.interceptors.request.use(config =&gt; {// loadingreturn config}, error =&gt; {return Promise.reject(error)})axios.interceptors.response.use(response =&gt; {return response}, error =&gt; {return Promise.resolve(error.response)})function checkStatus (response) {// loading// 如果http状态码正常，则直接返回数据if (response &amp;&amp; (response.status === 200 || response.status === 304 || response.status === 400)) {return response// 如果不需要除了data之外的数据，可以直接 return response.data}// 异常状态下，把错误信息返回去return {status: -404,msg: &#39;网络异常&#39;}}function checkCode (res) {// 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户if (res."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>vue中axios的封装</title>
+	<link rel="stylesheet" href="https://Littlehalo.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://Littlehalo.github.io/">LiuHuang&#39;s Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://Littlehalo.github.io/posts/">博客</a>
+				<a href="https://Littlehalo.github.io/about-hugo/">关于</a>
+				<a href="https://Littlehalo.github.io/ali/">面试</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://Littlehalo.github.io/posts/">博客</a></li>
+			<li><a href="https://Littlehalo.github.io/about-hugo/">关于</a></li>
+			<li><a href="https://Littlehalo.github.io/ali/">面试</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>vue中axios的封装</h1>
+		<div class="content">
+			<h1 id="关于axios在vue中的封装以及遇到的一些问题">关于axios在vue中的封装以及遇到的一些问题<a href="#关于axios在vue中的封装以及遇到的一些问题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h4 id="在src目录下建立文件夹utilshttpjs和apiapijs">在src目录下建立文件夹utils/http.js和api/api.js<a href="#在src目录下建立文件夹utilshttpjs和apiapijs" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h4 id="httpjs配置">http.js配置<a href="#httpjs配置" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>'use strict'
+
+import axios from 'axios'
+import qs from 'qs'
+
+axios.interceptors.request.use(config =&gt; {
+  // loading
+  return config
+}, error =&gt; {
+  return Promise.reject(error)
+})
+
+axios.interceptors.response.use(response =&gt; {
+  return response
+}, error =&gt; {
+  return Promise.resolve(error.response)
+})
+
+function checkStatus (response) {
+  // loading
+  // 如果http状态码正常，则直接返回数据
+  if (response &amp;&amp; (response.status === 200 || response.status === 304 || response.status === 400)) {
+    return response
+    // 如果不需要除了data之外的数据，可以直接 return response.data
+  }
+  // 异常状态下，把错误信息返回去
+  return {
+    status: -404,
+    msg: '网络异常'
+  }
+}
+
+function checkCode (res) {
+  // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
+  if (res.status === -404) {
+    console.log(res.msg)
+  }
+  if (res.data &amp;&amp; (!res.data.success)) {
+    console.log(&quot;这是一个拦截器&quot;)
+  }
+  return res
+}
+
+export default {
+  post (url, data) {
+    return axios({
+      method: 'post',
+      baseURL: 'https://v0.yiketianqi.com/',
+      url,
+      data: qs.stringify(data),
+      timeout: 10000,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then(
+      (response) =&gt; {
+        return checkStatus(response)
+      }
+    ).then(
+      (res) =&gt; {
+        return checkCode(res)
+      }
+    )
+  },
+  get (url, params) {
+    return axios({
+      method: 'get',
+      baseURL: '/tq',
+      url,
+      params, // get 请求时带的参数
+      timeout: 10000,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    }).then(
+      (response) =&gt; {
+        return checkStatus(response)
+      }
+    ).then(
+      (res) =&gt; {
+        return checkCode(res)
+      }
+    )
+  }
+}
+
+</code></pre><h4 id="apijs中存放一些接口api">api.js中存放一些接口api<a href="#apijs中存放一些接口api" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>export default {
+    right: '/api?version=v61&amp;appid=42775833&amp;appsecret=DP2I4kS2', // 正确路径
+  }
+  
+</code></pre><h4 id="在vue中引用">在vue中引用<a href="#在vue中引用" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>import http from './utils/http'
+import api from './api/api'
+
+created() {
+    // axios.defaults.baseURL=&quot;https://v0.yiketianqi.com/&quot;
+    // axios.get('api?version=v61&amp;appid=42775833&amp;appsecret=DP2I4kS2').then((res)=&gt;{
+    //   this.title = res.data.air_tips
+    //   console.log(res)
+    // })
+    this.fetchData()
+  },
+  methods: {
+    fetchData:async function () {
+      let params = {
+      }
+      const res = await http.get(api.right)
+      // if (res.data.success) {
+      //   alert('请求成功')
+      // }
+      console.log(res);
+    },
+  }
+</code></pre><h3 id="产生的问题">产生的问题<a href="#产生的问题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>跨域问题</p>
+<p>配置vue.config.js</p>
+<pre><code>const path =  require('path');
+const resolve = (dir) =&gt; path.join(__dirname, dir);
+
+const CompressionWebpackPlugin = require(&quot;compression-webpack-plugin&quot;); // 开启gzip压缩(可选)
+const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i; // 开启gzip压缩(可选)
+
+const BundleAnalyzerPlugin = require(&quot;webpack-bundle-analyzer&quot;).BundleAnalyzerPlugin; // 打包分析，(可选)
+
+const IS_PRODUCTION = ['production', 'prod'].includes(process.env.NODE_ENV);//判断是否是生产环境
+/** 正式配置项，以下参数 都是可选**/
+module.exports = {
+    publicPath: process.env.NODE_ENV === 'production' ? '/site/vue-demo/' : '/',  // 打包公共路径
+    indexPath: 'index.html' , // 相对于打包路径index.html的路径
+    outputDir: process.env.outputDir || 'dist', // 'dist', 生产环境构建文件的目录
+    assetsDir: 'static', // 相对于outputDir的静态资源(js、css、img、fonts)目录
+    lintOnSave: false, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码，false不需要
+    runtimeCompiler: true, // 是否使用包含运行时编译器的 Vue 构建版本
+    productionSourceMap: !IS_PRODUCTION, // 生产环境的 source map,
+    parallel: require(&quot;os&quot;).cpus().length &gt; 1, // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
+    pwa: {}, // 向 PWA 插件传递选项。
+    chainWebpack: config =&gt; {
+        config.resolve.symlinks(true); // 修复热更新失效
+        // 如果使用多页面打包，使用vue inspect --plugins查看html是否在结果数组中
+        config.plugin(&quot;html&quot;).tap(args =&gt; {
+            // 修复 Lazy loading routes Error
+            args[0].chunksSortMode = &quot;none&quot;;
+            return args;
+        });
+        config.resolve.alias // 添加别名
+            .set('@', resolve('src'))
+            .set('@assets', resolve('src/assets'))
+            .set('@components', resolve('src/components'))
+            .set('@views', resolve('src/views'))
+            .set('@store', resolve('src/store'));
+        // 压缩图片
+        // 需要 npm i -D image-webpack-loader
+        config.module
+            .rule(&quot;images&quot;)
+            .use(&quot;image-webpack-loader&quot;)
+            .loader(&quot;image-webpack-loader&quot;)
+            .options({
+                mozjpeg: { progressive: true, quality: 65 },
+                optipng: { enabled: false },
+                pngquant: { quality: [0.65, 0.9], speed: 4 },
+                gifsicle: { interlaced: false },
+                webp: { quality: 75 }
+            });
+        // 打包分析, 打包之后自动生成一个名叫report.html文件(可忽视)
+        if (IS_PRODUCTION) {
+            config.plugin(&quot;webpack-report&quot;).use(BundleAnalyzerPlugin, [
+                {
+                    analyzerMode: &quot;static&quot;
+                }
+            ]);
+        }
+    },
+    //webpack的配置项
+    configureWebpack: config =&gt; {
+        // 开启 gzip 压缩
+        // 需要 npm i -D compression-webpack-plugin
+        const plugins = [];
+        if (IS_PRODUCTION) {
+            plugins.push(
+                new CompressionWebpackPlugin({
+                    filename: &quot;[path].gz[query]&quot;,
+                    algorithm: &quot;gzip&quot;,
+                    test: productionGzipExtensions,
+                    threshold: 10240,
+                    minRatio: 0.8
+                })
+            );
+        }
+        config.plugins = [...config.plugins, ...plugins];
+    },
+    css: {
+        extract: IS_PRODUCTION,
+        requireModuleExtension: false,// 去掉文件名中的 .module
+        loaderOptions: {
+                // 给 less-loader 传递 Less.js 相关选项
+                less: {
+                    // `globalVars` 定义全局对象，可加入全局变量
+                    globalVars: {
+                        primary: '#333'
+                    }
+                }
+        }
+    },
+    devServer: {
+            overlay: { // 让浏览器 overlay 同时显示警告和错误
+              warnings: true,
+              errors: true
+            },
+            host: &quot;localhost&quot;,
+            port: 8081, // 端口号
+            https: false, // https:{type:Boolean}
+            open: false, //配置后自动启动浏览器
+            hotOnly: true, // 热更新
+            // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
+            proxy: { //配置多个跨域
+                &quot;/tq&quot;: {
+                    target: &quot;https://v0.yiketianqi.com/&quot;,
+                    changeOrigin: true,
+                    ws: true,//websocket支持
+                    secure: false,
+                    // pathRewrite: {
+                    //     &quot;^/tq&quot;: &quot;https://v0.yiketianqi.com/&quot;
+                    // }
+                }
+            }
+        }
+}
+</code></pre><h3 id="heading"><a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h4 id="问题1一开始配置了devserve但是请求的还是本地接口">问题1：一开始配置了devServe，但是请求的还是本地接口<a href="#问题1一开始配置了devserve但是请求的还是本地接口" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h5 id="后来修改port端口为8081恢复正常不知道什么原因">后来修改port端口为8081，恢复正常，不知道什么原因<a href="#后来修改port端口为8081恢复正常不知道什么原因" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<h4 id="针对学习axios官网axios拦截器vue-cli官网一些配置">针对学习：axios官网（axios拦截器）；vue-cli官网（一些配置）<a href="#针对学习axios官网axios拦截器vue-cli官网一些配置" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://Littlehalo.github.io/">dorliu</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://Littlehalo.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://Littlehalo.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

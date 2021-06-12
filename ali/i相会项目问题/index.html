@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="解决单行（多行）文本溢出： //单行.note2_item text {display: block;font-size: 28rpx;color: #000000;line-height: 40rpx;height: 120rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}//多行.note_item text {display: -webkit-box;font-size: 28rpx;color: #000000;line-height: 40rpx;word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;text-overflow: ellipsis;}关于小程序图片上传vant &lt;van-uploader media=&quot;image&quot; file-list=&quot;{{ fileList }}&quot; bind:delete=&quot;delete&quot;bind:after-read=&quot;afterRead&quot; multiple=&quot;{{true}}&quot; /&gt;afterRead: function (event) {const {file} = event.detail; // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式this.">
+
+<meta itemprop="wordCount" content="823">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
+<meta property="og:description" content="解决单行（多行）文本溢出： //单行.note2_item text {display: block;font-size: 28rpx;color: #000000;line-height: 40rpx;height: 120rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}//多行.note_item text {display: -webkit-box;font-size: 28rpx;color: #000000;line-height: 40rpx;word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;text-overflow: ellipsis;}关于小程序图片上传vant &lt;van-uploader media=&quot;image&quot; file-list=&quot;{{ fileList }}&quot; bind:delete=&quot;delete&quot;bind:after-read=&quot;afterRead&quot; multiple=&quot;{{true}}&quot; /&gt;afterRead: function (event) {const {file} = event.detail; // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Littlehalo.github.io/ali/i%E7%9B%B8%E4%BC%9A%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="解决单行（多行）文本溢出： //单行.note2_item text {display: block;font-size: 28rpx;color: #000000;line-height: 40rpx;height: 120rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}//多行.note_item text {display: -webkit-box;font-size: 28rpx;color: #000000;line-height: 40rpx;word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;text-overflow: ellipsis;}关于小程序图片上传vant &lt;van-uploader media=&quot;image&quot; file-list=&quot;{{ fileList }}&quot; bind:delete=&quot;delete&quot;bind:after-read=&quot;afterRead&quot; multiple=&quot;{{true}}&quot; /&gt;afterRead: function (event) {const {file} = event.detail; // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式this."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title></title>
+	<link rel="stylesheet" href="https://Littlehalo.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://Littlehalo.github.io/">LiuHuang&#39;s Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://Littlehalo.github.io/posts/">博客</a>
+				<a href="https://Littlehalo.github.io/about-hugo/">关于</a>
+				<a href="https://Littlehalo.github.io/ali/">面试</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://Littlehalo.github.io/posts/">博客</a></li>
+			<li><a href="https://Littlehalo.github.io/about-hugo/">关于</a></li>
+			<li><a href="https://Littlehalo.github.io/ali/">面试</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1></h1>
+		<div class="content">
+			<h4 id="解决单行多行文本溢出">解决单行（多行）文本溢出：<a href="#解决单行多行文本溢出" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>//单行
+.note2_item text {
+	display: block;
+	font-size: 28rpx;
+	color: #000000;
+	line-height: 40rpx;
+	height: 120rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+//多行
+.note_item text {
+	display: -webkit-box;
+	font-size: 28rpx;
+	color: #000000;
+	line-height: 40rpx;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+</code></pre><h4 id="关于小程序图片上传vant">关于小程序图片上传vant<a href="#关于小程序图片上传vant" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>&lt;van-uploader 
+  media=&quot;image&quot; 
+  file-list=&quot;{{ fileList }}&quot;  
+  bind:delete=&quot;delete&quot;
+  bind:after-read=&quot;afterRead&quot; 
+  multiple=&quot;{{true}}&quot; 
+/&gt;
+</code></pre><pre><code>afterRead: function (event) {
+    const {
+      file
+    } = event.detail; // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    this.setData({
+      fileList: file
+    })
+    // this.uploadImg(file);
+  },
+  delete(event) {
+    console.log(event)
+    let imgDelIndex = event.detail.index
+    let fileList = this.data.fileList
+    fileList.splice(imgDelIndex, 1)
+    console.log('删除图片的', fileList)
+    this.setData({
+      fileList
+    })
+    // this.uploadImg(fileList)
+  },
+  // uploadImg(file) {
+  //   let _this = this
+  //   var imgUrl = [];
+  //   // 多张图片上传
+  //   for (var i = 0; i &lt; file.length; i++) {
+  //     wx.uploadFile({
+  //       url: baseUrl + forumUploadImg, //写自己的路径
+  //       filePath: file[i].path,
+  //       name: 'img',
+  //       formData: {
+  //         'img': file[i].path
+  //       },
+  //       success: function (res) {
+  //         let obj = JSON.parse(res.data);
+  //         imgUrl.push(obj.data.img_path)
+  //         _this.setData({
+  //           imgUrls: imgUrl
+  //         })
+  //         console.log(_this.data.imgUrls)
+  //       },
+  //     })
+  //   }
+  // },
+</code></pre><h4 id="数组转变成固定值的数组对象">数组转变成固定值的数组对象<a href="#数组转变成固定值的数组对象" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>需求：
+['jack', 'pony', 'tony', 'thomas']
+
+目标：
+[
+   {'text':'jack'},
+   {'text':'pony'},
+   {'text':'tony'},
+   {'text':'thomas'},
+]
+实现代码：
+var arr = ['jack', 'pony', 'tony', 'thomas'];
+var obj = {};
+// 将数组转化为对象
+for (let key in arr) {
+   // 将数组中的值一一赋值给对象 此时对象中的key就是数组的索引 value就是数组的每一个值
+   obj[key] = arr[key];
+};
+testObj = Object.keys(obj).map(val =&gt; ({
+   // 通过val 拿到obj中的每一个值 并且重新设置key为固定的text
+   text: obj[val]
+}));
+console.log(testObj)
+
+</code></pre><h4 id="实现自定义多项选择点击改变颜色">实现自定义多项选择（点击改变颜色）<a href="#实现自定义多项选择点击改变颜色" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>源码地址：https://gitee.com/yumihaochi/multiple-choice-problem.git
+</code></pre><pre><code>&lt;view class='the-label'&gt;
+  &lt;view class=&quot;th&quot;&gt;
+    &lt;label class=&quot;ti&quot;&gt;标签 &lt;/label&gt; 
+    &lt;label class=&quot;tt&quot;&gt;（选择下方标签，最多选择5个） &lt;/label&gt; 
+  &lt;/view&gt;
+  &lt;view class='list'&gt;
+    &lt;block wx:for=&quot;{{items}}&quot; wx:for-item=&quot;v&quot; wx:key=&quot;k&quot; wx:for-index=&quot;index&quot;&gt;
+      &lt;view class=&quot;li {{v.checked?'cur':''}}&quot; data-index=&quot;{{index}}&quot; data-value=&quot;{{v.value}}&quot; bindtap=&quot;checkLabs&quot;&gt;
+        &lt;label class='ti'&gt;{{v.value}}&lt;/label&gt;
+      &lt;/view&gt;
+    &lt;/block&gt;
+  &lt;/view&gt;
+&lt;/view&gt;  
+
+&lt;!-- 这里用来存储选中的标签的值 {{arr}}--&gt;
+&lt;view class='seled'&gt;
+  &lt;view class='tt'&gt;你当前选中的是：&lt;/view&gt;
+  &lt;label class='sel-v'&gt;{{arr}}&lt;/label&gt;
+&lt;/view&gt;
+</code></pre><pre><code>// pages/multiple/multiple.js
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    items: [
+      { value: '曾小贤', checked: 'true'},
+      { value: '胡一菲', checked: 'true' },
+      { value: '吕子乔', checked: '' },
+      { value: '陈美嘉', checked: '' },
+      { value: '陆展博', checked: '' },
+      { value: '丽莎蓉', checked: '' },
+      { value: '关谷神奇', checked: '' },
+    ],
+    arr: [], //标签数组：用来存储选中的值
+  },
+  //选择标签方法
+  checkLabs(e) {
+    var that = this, 
+        index = e.currentTarget.dataset.index,
+        value = e.currentTarget.dataset.value,
+        items = that.data.items,
+        arr = that.data.arr,
+        val = items[index].checked, //点击前的值
+        limitNum = 5,
+        curNum = 0; //已选择数量
+    //选中累加
+    for (var i in items) {
+      if (items[i].checked) {
+        curNum += 1;
+      }
+    }
+
+    if (!val) {
+      if (curNum == limitNum) {
+        wx.showModal({
+          content: '选择数量不能超过' + limitNum + '个',
+          showCancel: false
+        })
+        return;
+      }
+      arr.push(value);
+    } else {
+      for (var i in arr) {
+        if (arr[i] == value) {
+          arr.splice(i, 1);
+        }
+      }
+
+    }
+    items[index].checked = !val;
+
+    that.setData({
+      items: items,
+      arr: arr
+    })
+
+  },
+
+ //默认选中为true的
+  selectEd(e){
+    var that = this,
+      arr = that.data.arr,
+      items = that.data.items
+    for (var i = 0; i &lt; items.length; i++) {
+      if (items[i].checked) {
+        var value = items[i].value;
+        arr.push(value);
+        that.setData({
+          items: items,
+          arr: arr
+        })
+      }
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.selectEd();
+  },
+})
+</code></pre><h4 id="自定义单选">自定义单选<a href="#自定义单选" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>&lt;!--pages/single/single.wxml--&gt;
+&lt;!-- 单选操作 --&gt;
+&lt;view class='list'&gt;
+  &lt;block wx:for=&quot;{{items}}&quot; wx:for-item=&quot;v&quot; wx:key=&quot;k&quot; wx:for-index=&quot;index&quot;&gt;
+    &lt;view class='li {{v.checked?&quot;cur&quot;:&quot;&quot;}}' data-index='{{index}}' data-value=&quot;{{v.value}}&quot; bindtap='selSingle'&gt;     
+      &lt;label class='ti'&gt;{{v.value}} &lt;/label&gt;
+    &lt;/view&gt;
+  &lt;/block&gt;
+&lt;/view&gt;
+&lt;!-- 这里用来存储选中的标签的值 {{selVal}}--&gt;
+&lt;view class='seled'&gt;
+  &lt;view class='tt'&gt;你当前选中的是：&lt;/view&gt;
+  &lt;label class='sel-v'&gt;{{selVal}}&lt;/label&gt;
+&lt;/view&gt;
+</code></pre><pre><code>// pages/single/single.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    items: [
+      { value: '曾小贤', checked: '' },
+      { value: '胡一菲', checked: '' },
+      { value: '吕子乔', checked: '' },
+      { value: '陈美嘉', checked: '' },
+      { value: '陆展博', checked: '' },
+      { value: '丽莎蓉', checked: '' },
+      { value: '关谷神奇', checked: '' },
+      { value: '唐悠悠', checked: '' },
+    ],
+    selVal: '' //选中的值
+  },
+
+
+  // 单选操作
+  selSingle: function (e) {
+    var that = this,
+        index = e.currentTarget.dataset.index,
+        items = that.data.items,
+        selVal = that.data.selVal;
+    items.forEach(function (v, i) {
+      if (index == i) {
+        items[index].checked = true;
+        var selVal = items[index].value
+        that.setData({
+          selVal: selVal
+        })
+      }
+      else {
+        items[i].checked = false;
+      }
+    })
+    that.setData({
+      items: items,
+    })
+  },
+
+  //默认选中第一个
+  defaultSelected() {
+    var that = this;
+    that.data.items[0].checked = true;
+    that.setData({
+      items: that.data.items,
+      selVal: that.data.items[0].value,
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.defaultSelected();
+
+  }
+})
+</code></pre><h4 id="父组件改变子组件中的值">父组件改变子组件中的值<a href="#父组件改变子组件中的值" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>1：</p>
+<pre><code>  toChangeChild(){
+    const child  = this.selectComponent('.mine-options')
+    let items = child.data.items
+    let arr = child.data.arr
+    items = items.filter((i)=&gt;{
+      return i.checked != true
+    })
+    child.setData({
+      items,
+      arr:[]
+    })
+  },
+</code></pre><p>2：</p>
+<pre><code>思路同上，获取子组件中的方法改变子组件中的值
+</code></pre><h4 id="子组件向父组件传递值">子组件向父组件传递值<a href="#子组件向父组件传递值" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>子组件：
+   this.triggerEvent(&quot;addInterest&quot;, arr)
+父组件：
+&lt;mine-options class=&quot;mine-options&quot; bind:addInterest='addInterest' /&gt;
+
+
+ addInterest(e){
+  // console.log(e.detail);
+  var that = this
+  that.setData({
+  arr: e.detail
+  })
+ }
+</code></pre><h4 id="两栏布局flex">两栏布局：（flex）<a href="#两栏布局flex" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>&lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;
+        左侧固定内容
+    &lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;
+        右侧内容自适应
+    &lt;/div&gt;
+&lt;/div&gt;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.wrap {
+    display: flex;
+}
+.left {
+    height: 200px;
+    background: purple;
+    flex:0 0 200px
+}
+.right {
+    background: skyblue;
+    height: 200px;
+    flex: 1;
+}
+</code></pre><p>数组去重：</p>
+<pre><code>var arr1 = [1, 2, 3, 4, 5];
+var arr2 = [1, 2, 3, 4, 5, 6];
+//定义一个函数
+function exist(num, arr1) {
+    for (var j = 0; j &lt; arr1.length; j++) {
+        if (num === arr1[j]) {
+            return false; //如果传过来的元素在arr1中能找到相匹配的元素，我们返回fasle
+        }
+    }
+    return true; //如果不能找到相匹配的元素，返回true
+}
+//这里我们将长度较长的数组放入函数中进行比较，看哪几个数不在较短的函数中，再将它们放入新的数组中
+var newArr = [];
+for (var i = 0; i &lt; arr2.length; i++) {
+    //我们将arr2中的元素依次放入函数中进行比较，然后接收函数的返回值
+    if (exist(arr2[i], arr1)) { //如果返回的值是true，我们将元素放入新的数组中
+        newArr[newArr.length] = arr2[i];
+    }
+}
+console.log(newArr);
+</code></pre>
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://Littlehalo.github.io/">dorliu</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://Littlehalo.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://Littlehalo.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

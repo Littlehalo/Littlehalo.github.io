@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="js对象">
+<meta itemprop="description" content="Array 对象 Array.isArray() Array.isArray方法返回一个布尔值，表示参数是否为数组。它可以弥补typeof运算符的不足。
+push()，pop()   push方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  pop方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。对空数组使用pop方法，不会报错，而是返回undefined
+  shift()，unshift()   shift()方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。
+  unshift()方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  var a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];a.unshift(&#39;x&#39;); // 4a // [&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]join()  join()方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。  var a = [1, 2, 3, 4];a.join(&#39; &#39;) // &#39;1 2 3 4&#39;a.join(&#39; | &#39;) // &quot;1 | 2 | 3 | 4&quot;a.join() // &quot;1,2,3,4&quot;通过call方法，这个方法也可以用于字符串或类似数组的对象。">
+<meta itemprop="datePublished" content="2021-03-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="448">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="js对象" />
+<meta property="og:description" content="Array 对象 Array.isArray() Array.isArray方法返回一个布尔值，表示参数是否为数组。它可以弥补typeof运算符的不足。
+push()，pop()   push方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  pop方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。对空数组使用pop方法，不会报错，而是返回undefined
+  shift()，unshift()   shift()方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。
+  unshift()方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  var a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];a.unshift(&#39;x&#39;); // 4a // [&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]join()  join()方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。  var a = [1, 2, 3, 4];a.join(&#39; &#39;) // &#39;1 2 3 4&#39;a.join(&#39; | &#39;) // &quot;1 | 2 | 3 | 4&quot;a.join() // &quot;1,2,3,4&quot;通过call方法，这个方法也可以用于字符串或类似数组的对象。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Littlehalo.github.io/ali/js%E5%AF%B9%E8%B1%A1/" />
+<meta property="article:published_time" content="2021-03-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="js对象"/>
+<meta name="twitter:description" content="Array 对象 Array.isArray() Array.isArray方法返回一个布尔值，表示参数是否为数组。它可以弥补typeof运算符的不足。
+push()，pop()   push方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  pop方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。对空数组使用pop方法，不会报错，而是返回undefined
+  shift()，unshift()   shift()方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。
+  unshift()方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+  var a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];a.unshift(&#39;x&#39;); // 4a // [&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]join()  join()方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。  var a = [1, 2, 3, 4];a.join(&#39; &#39;) // &#39;1 2 3 4&#39;a.join(&#39; | &#39;) // &quot;1 | 2 | 3 | 4&quot;a.join() // &quot;1,2,3,4&quot;通过call方法，这个方法也可以用于字符串或类似数组的对象。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>js对象</title>
+	<link rel="stylesheet" href="https://Littlehalo.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://Littlehalo.github.io/">LiuHuang&#39;s Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://Littlehalo.github.io/posts/">博客</a>
+				<a href="https://Littlehalo.github.io/about-hugo/">关于</a>
+				<a href="https://Littlehalo.github.io/ali/">面试</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://Littlehalo.github.io/posts/">博客</a></li>
+			<li><a href="https://Littlehalo.github.io/about-hugo/">关于</a></li>
+			<li><a href="https://Littlehalo.github.io/ali/">面试</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>js对象</h1>
+		<div class="content">
+			<h4 id="array-对象">Array 对象<a href="#array-对象" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h4 id="arrayisarray">Array.isArray()<a href="#arrayisarray" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>Array.isArray</code>方法返回一个布尔值，表示参数是否为数组。它可以弥补<code>typeof</code>运算符的不足。</p>
+<h4 id="pushpop">push()，pop()<a href="#pushpop" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>
+<p><code>push</code>方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
+</li>
+<li>
+<p><code>pop</code>方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。对空数组使用<code>pop</code>方法，不会报错，而是返回<code>undefined</code></p>
+</li>
+</ul>
+<h4 id="shiftunshift">shift()，unshift()<a href="#shiftunshift" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>
+<p><code>shift()</code>方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。</p>
+</li>
+<li>
+<p><code>unshift()</code>方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
+</li>
+</ul>
+<pre><code>var a = ['a', 'b', 'c'];
+
+a.unshift('x'); // 4
+a // ['x', 'a', 'b', 'c']
+</code></pre><h4 id="join">join()<a href="#join" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li><code>join()</code>方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。</li>
+</ul>
+<pre><code>var a = [1, 2, 3, 4];
+
+a.join(' ') // '1 2 3 4'
+a.join(' | ') // &quot;1 | 2 | 3 | 4&quot;
+a.join() // &quot;1,2,3,4&quot;
+</code></pre><p>通过<code>call</code>方法，这个方法也可以用于字符串或类似数组的对象。</p>
+<pre><code>Array.prototype.join.call('hello', '-')
+// &quot;h-e-l-l-o&quot;
+
+var obj = { 0: 'a', 1: 'b', length: 2 };
+Array.prototype.join.call(obj, '-')
+// 'a-b'
+</code></pre><h4 id="concat">concat()<a href="#concat" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>concat</code>方法用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，原数组不变。</p>
+<pre><code>['hello'].concat(['world'])
+// [&quot;hello&quot;, &quot;world&quot;]
+
+['hello'].concat(['world'], ['!'])
+// [&quot;hello&quot;, &quot;world&quot;, &quot;!&quot;]
+
+[].concat({a: 1}, {b: 2})
+// [{ a: 1 }, { b: 2 }]
+
+[2].concat({a: 1})
+// [2, {a: 1}]
+</code></pre><h4 id="slice">slice()<a href="#slice" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>slice()</code>方法用于提取目标数组的一部分，返回一个新数组，原数组不变。</p>
+<pre><code>arr.slice(start, end);
+</code></pre><p>它的第一个参数为起始位置（从0开始，会包括在返回的新数组之中），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。</p>
+<pre><code>var a = ['a', 'b', 'c'];
+
+a.slice(0) // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+a.slice(1) // [&quot;b&quot;, &quot;c&quot;]
+a.slice(1, 2) // [&quot;b&quot;]
+a.slice(2, 6) // [&quot;c&quot;]
+a.slice() // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+</code></pre><h4 id="splice">splice()<a href="#splice" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>splice()</code>方法用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。注意，该方法会改变原数组。</p>
+<pre><code>arr.splice(start, count, addElement1, addElement2, ...);
+</code></pre><p><code>splice</code>的第一个参数是删除的起始位置（从0开始），第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。</p>
+<pre><code>var a = ['a', 'b', 'c', 'd', 'e', 'f'];
+a.splice(4, 2) // [&quot;e&quot;, &quot;f&quot;]
+a // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+</code></pre><p>上面代码从原数组4号位置，删除了两个数组成员。</p>
+<pre><code>var a = ['a', 'b', 'c', 'd', 'e', 'f'];
+a.splice(4, 2, 1, 2) // [&quot;e&quot;, &quot;f&quot;]
+a // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, 1, 2]
+</code></pre><h4 id="sort">sort()<a href="#sort" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>sort</code>方法对数组成员进行排序，默认是按照<strong>字典顺序排序</strong>。排序后，原数组将被改变。</p>
+<h4 id="map">map()<a href="#map" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>map</code>方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回。</p>
+<pre><code>var numbers = [1, 2, 3];
+
+numbers.map(function (n) {
+  return n + 1;
+});
+// [2, 3, 4]
+
+numbers
+// [1, 2, 3]
+</code></pre><p>上面代码中，<code>numbers</code>数组的所有成员依次执行参数函数，运行结果组成一个新数组返回，原数组没有变化。</p>
+<p><code>map</code>方法接受一个函数作为参数。该函数调用时，<code>map</code>方法向它传入三个参数：当前成员、当前位置和数组本身。</p>
+<pre><code>[1, 2, 3].map(function(elem, index, arr) {
+  return elem * index;
+});
+// [0, 2, 6]
+</code></pre><h4 id="foreach">forEach()<a href="#foreach" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>forEach</code>方法与<code>map</code>方法很相似，也是对数组的所有成员依次执行参数函数。但是，<code>forEach</code>方法不返回值，只用来操作数据。这就是说，如果数组遍历的目的是为了得到返回值，那么使用<code>map</code>方法，否则使用<code>forEach</code>方法。</p>
+<p><code>forEach</code>的用法与<code>map</code>方法一致，参数是一个函数，该函数同样接受三个参数：当前值、当前位置、整个数组。</p>
+<pre><code>function log(element, index, array) {
+  console.log('[' + index + '] = ' + element);
+}
+
+[2, 5, 9].forEach(log);
+// [0] = 2
+// [1] = 5
+// [2] = 9
+</code></pre><h4 id="filter">filter()<a href="#filter" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>filter</code>方法用于过滤数组成员，满足条件的成员组成一个新数组返回。</p>
+<p>它的参数是一个函数，所有数组成员依次执行该函数，返回结果为<code>true</code>的成员组成一个新数组返回。该方法不会改变原数组。</p>
+<pre><code>[1, 2, 3, 4, 5].filter(function (elem) {
+  return (elem &gt; 3);
+})
+// [4, 5]
+</code></pre><p>上面代码将大于<code>3</code>的数组成员，作为一个新数组返回。</p>
+<pre><code>var arr = [0, 1, 'a', false];
+
+arr.filter(Boolean)
+// [1, &quot;a&quot;]
+</code></pre><p>上面代码中，<code>filter</code>方法返回数组<code>arr</code>里面所有布尔值为<code>true</code>的成员。</p>
+<p><code>filter</code>方法的参数函数可以接受三个参数：当前成员，当前位置和整个数组。</p>
+<pre><code>[1, 2, 3, 4, 5].filter(function (elem, index, arr) {
+  return index % 2 === 0;
+});
+// [1, 3, 5]
+</code></pre><h4 id="someevery">some()，every()<a href="#someevery" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>这两个方法类似“断言”（assert），返回一个布尔值，表示判断数组成员是否符合某种条件。</p>
+<p>它们接受一个函数作为参数，所有数组成员依次执行该函数。该函数接受三个参数：当前成员、当前位置和整个数组，然后返回一个布尔值。</p>
+<p><code>some</code>方法是只要一个成员的返回值是<code>true</code>，则整个<code>some</code>方法的返回值就是<code>true</code>，否则返回<code>false</code>。</p>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+arr.some(function (elem, index, arr) {
+  return elem &gt;= 3;
+});
+// true
+</code></pre><p>上面代码中，如果数组<code>arr</code>有一个成员大于等于3，<code>some</code>方法就返回<code>true</code>。</p>
+<p><code>every</code>方法是所有成员的返回值都是<code>true</code>，整个<code>every</code>方法才返回<code>true</code>，否则返回<code>false</code>。</p>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+arr.every(function (elem, index, arr) {
+  return elem &gt;= 3;
+});
+// false
+</code></pre><p>上面代码中，数组<code>arr</code>并非所有成员大于等于<code>3</code>，所以返回<code>false</code>。</p>
+<h4 id="reducereduceright">reduce()，reduceRight()<a href="#reducereduceright" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>reduce</code>方法和<code>reduceRight</code>方法依次处理数组的每个成员，最终累计为一个值。它们的差别是，<code>reduce</code>是从左到右处理（从第一个成员到最后一个成员），<code>reduceRight</code>则是从右到左（从最后一个成员到第一个成员），其他完全一样。</p>
+<pre><code>[1, 2, 3, 4, 5].reduce(function (a, b) {
+  console.log(a, b);
+  return a + b;
+})
+// 1 2
+// 3 3
+// 6 4
+// 10 5
+//最后结果：15
+</code></pre><p>上面代码中，<code>reduce</code>方法求出数组所有成员的和。第一次执行，<code>a</code>是数组的第一个成员<code>1</code>，<code>b</code>是数组的第二个成员<code>2</code>。第二次执行，<code>a</code>为上一轮的返回值<code>3</code>，<code>b</code>为第三个成员<code>3</code>。第三次执行，<code>a</code>为上一轮的返回值<code>6</code>，<code>b</code>为第四个成员<code>4</code>。第四次执行，<code>a</code>为上一轮返回值<code>10</code>，<code>b</code>为第五个成员<code>5</code>。至此所有成员遍历完成，整个方法的返回值就是最后一轮的返回值<code>15</code>。</p>
+<p><code>reduce</code>方法和<code>reduceRight</code>方法的第一个参数都是一个函数。该函数接受以下四个参数。</p>
+<ol>
+<li>累积变量，默认为数组的第一个成员</li>
+<li>当前变量，默认为数组的第二个成员</li>
+<li>当前位置（从0开始）</li>
+<li>原数组</li>
+</ol>
+<p>这四个参数之中，只有前两个是必须的，后两个则是可选的。</p>
+<h4 id="indexoflastindexof">indexOf()，lastIndexOf()<a href="#indexoflastindexof" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><code>indexOf</code>方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回<code>-1</code>。</p>
+<pre><code>var a = ['a', 'b', 'c'];
+
+a.indexOf('b') // 1
+a.indexOf('y') // -1
+</code></pre><p><code>indexOf</code>方法还可以接受第二个参数，表示搜索的开始位置。</p>
+<pre><code>['a', 'b', 'c'].indexOf('a', 1) // -1
+</code></pre><p>上面代码从1号位置开始搜索字符<code>a</code>，结果为<code>-1</code>，表示没有搜索到。</p>
+<p><code>lastIndexOf</code>方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回<code>-1</code>。</p>
+<pre><code>var a = [2, 5, 9, 2];
+a.lastIndexOf(2) // 3
+a.lastIndexOf(7) // -1
+</code></pre><p>注意，这两个方法不能用来搜索<code>NaN</code>的位置，即它们无法确定数组成员是否包含<code>NaN</code>。</p>
+<pre><code>[NaN].indexOf(NaN) // -1
+[NaN].lastIndexOf(NaN) // -1
+</code></pre>
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://Littlehalo.github.io/">dorliu</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://Littlehalo.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://Littlehalo.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
